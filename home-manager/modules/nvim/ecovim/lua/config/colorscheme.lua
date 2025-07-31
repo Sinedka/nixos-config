@@ -143,9 +143,9 @@ local highlights = {
 }
 
 
--- for group, hl in pairs(highlights) do
---   vim.api.nvim_set_hl(0, group, hl)
--- end
+for group, hl in pairs(highlights) do
+  vim.api.nvim_set_hl(0, group, hl)
+end
 
 -- local fixBufferLineSeparator = function()
 --   vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", vim.api.nvim_get_hl_by_name('WinSeparator', true))

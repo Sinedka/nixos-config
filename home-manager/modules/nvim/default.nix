@@ -76,7 +76,6 @@
           telescope-fzf-native-nvim
           telescope-nvim
           todo-comments-nvim
-          tokyonight-nvim
           # ts-error-translator-nvim
           typescript-tools-nvim
           ultimate-autopair-nvim
