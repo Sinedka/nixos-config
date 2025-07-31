@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  workspace_action = ''hyprctl dispatch "$1" $(((($(hyprctl activeworkspace -j | jq -r .id) - 1)  / 10) * 10 + $2))'';
+  workspace_action = {disp, workspace}: ''hyprctl dispatch ${disp} $(((($(hyprctl activeworkspace -j | jq -r .id) - 1)  / 10) * 10 + ${workspace}))'';
 
 in{
   wayland.windowManager.hyprland.settings = {
@@ -56,16 +56,16 @@ in{
       "Super, P, pin"
 
       # Отправка в воркспейсы
-      "Super+Alt, 1, exec, ${workspace_action} movetoworkspacesilent 1"
-      "Super+Alt, 2, exec, ${workspace_action} movetoworkspacesilent 2"
-      "Super+Alt, 3, exec, ${workspace_action} movetoworkspacesilent 3"
-      "Super+Alt, 4, exec, ${workspace_action} movetoworkspacesilent 4"
-      "Super+Alt, 5, exec, ${workspace_action} movetoworkspacesilent 5"
-      "Super+Alt, 6, exec, ${workspace_action} movetoworkspacesilent 6"
-      "Super+Alt, 7, exec, ${workspace_action} movetoworkspacesilent 7"
-      "Super+Alt, 8, exec, ${workspace_action} movetoworkspacesilent 8"
-      "Super+Alt, 9, exec, ${workspace_action} movetoworkspacesilent 9"
-      "Super+Alt, 0, exec, ${workspace_action} movetoworkspacesilent 10"
+      "Super+Alt, 1, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="1";}}"
+      "Super+Alt, 2, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="2";}}"
+      "Super+Alt, 3, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="3";}}"
+      "Super+Alt, 4, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="4";}}"
+      "Super+Alt, 5, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="5";}}"
+      "Super+Alt, 6, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="6";}}"
+      "Super+Alt, 7, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="7";}}"
+      "Super+Alt, 8, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="8";}}"
+      "Super+Alt, 9, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="9";}}"
+      "Super+Alt, 0, exec, ${workspace_action {disp="movetoworkspacesilent"; workspace="10";}}"
       "Super+Shift, mouse_down, movetoworkspace, r-1"
       "Super+Shift, mouse_up, movetoworkspace, r+1"
       "Super+Alt, mouse_down, movetoworkspace, -1"
@@ -82,16 +82,16 @@ in{
       "Alt, Tab, bringactivetotop"
 
       # Переключение воркспейсов
-      "Super, 1, exec, ${workspace_action} workspace 1"
-      "Super, 2, exec, ${workspace_action} workspace 2"
-      "Super, 3, exec, ${workspace_action} workspace 3"
-      "Super, 4, exec, ${workspace_action} workspace 4"
-      "Super, 5, exec, ${workspace_action} workspace 5"
-      "Super, 6, exec, ${workspace_action} workspace 6"
-      "Super, 7, exec, ${workspace_action} workspace 7"
-      "Super, 8, exec, ${workspace_action} workspace 8"
-      "Super, 9, exec, ${workspace_action} workspace 9"
-      "Super, 0, exec, ${workspace_action} workspace 10"
+      "Super, 1, exec, ${workspace_action {disp="workspace"; workspace="1";}}"
+      "Super, 2, exec, ${workspace_action {disp="workspace"; workspace="2";}}"
+      "Super, 3, exec, ${workspace_action {disp="workspace"; workspace="3";}}"
+      "Super, 4, exec, ${workspace_action {disp="workspace"; workspace="4";}}"
+      "Super, 5, exec, ${workspace_action {disp="workspace"; workspace="5";}}"
+      "Super, 6, exec, ${workspace_action {disp="workspace"; workspace="6";}}"
+      "Super, 7, exec, ${workspace_action {disp="workspace"; workspace="7";}}"
+      "Super, 8, exec, ${workspace_action {disp="workspace"; workspace="8";}}"
+      "Super, 9, exec, ${workspace_action {disp="workspace"; workspace="9";}}"
+      "Super, 0, exec, ${workspace_action {disp="workspace"; workspace="10";}}"
       "Ctrl+Super, Right, workspace, r+1"
       "Ctrl+Super, Left, workspace, r-1"
       "Ctrl+Super+Alt, Right, workspace, m+1"
