@@ -1,13 +1,14 @@
 {
   imports = [
-    ./hyprland
-    ./quickshell
     ./console
-    ./gtk.nix
+    ./git
+    ./hyprland
+    ./nvim
+    ./quickshell
+    ./vesktop
     ./bash.nix
     ./cursor.nix
+    ./gtk.nix
     ./kitty.nix
-    ./nvim
-    ./vesktop
   ];
 }

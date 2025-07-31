@@ -66,10 +66,8 @@ wk.add({
 wk.add({
   { "<leader>/",  group = "Ecovim" },
   { "<leader>/s", group = "Session" },
-  { "<leader>//", "<cmd>Alpha<CR>",       desc = "open dashboard" },
-  { "<leader>/c", "<cmd>e $MYVIMRC<CR>",  desc = "open config" },
-  { "<leader>/i", "<cmd>Lazy<CR>",        desc = "manage plugins" },
-  { "<leader>/u", "<cmd>Lazy update<CR>", desc = "update plugins" },
+  { "<leader>//", "<cmd>Alpha<CR>", desc = "open dashboard" },
+  { "<leader>/i", "<cmd>Lazy<CR>",  desc = "manage plugins" },
 })
 
 wk.add({
@@ -82,17 +80,17 @@ wk.add({
   { "<leader>b",  group = "Buffer" },
   { "<leader>bs", group = "Sort" },
   { "<leader>bc", '<cmd>lua Snacks.bufdelete.other()<CR>', desc = "Close but current" },
-  { "<leader>bf", "<cmd>bfirst<CR>",                                   desc = "First buffer" },
+  { "<leader>bf", "<cmd>bfirst<CR>",                       desc = "First buffer" },
 })
 
 wk.add({
-  { "<leader>c",  group = "LSP",                                      mode = { "n", "v" } },
-  { "<leader>ca", desc = "code action",                               mode = { "n", "v" } },
-  { "<leader>cf", desc = "format",                                    mode = { "n", "v" } },
+  { "<leader>c",  group = "LSP",                  mode = { "n", "v" } },
+  { "<leader>ca", desc = "code action",           mode = { "n", "v" } },
+  { "<leader>cf", desc = "format",                mode = { "n", "v" } },
   { "<leader>cl", desc = "line diagnostics" },
   { "<leader>cr", desc = "rename" },
   { "<leader>cR", desc = "structural replace" },
-  { "<leader>ct", '<cmd>LspToggleAutoFormat<CR>',                     desc = "toggle format on save" },
+  { "<leader>ct", '<cmd>LspToggleAutoFormat<CR>', desc = "toggle format on save" },
 })
 
 wk.add({
@@ -100,29 +98,25 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>g",   group = "Git",                     mode = { "n", "v" } },
-  { "<leader>ga",  "<cmd>!git add %:p<CR>",           desc = 'add current' },
-  { "<leader>gA",  "<cmd>!git add .<CR>",             desc = 'add all' },
-  { "<leader>gb",  "<cmd>BlameToggle window<CR>",     desc = 'blame' },
+  { "<leader>g",   group = "Git",                 mode = { "n", "v" } },
+  { "<leader>ga",  "<cmd>!git add %:p<CR>",       desc = 'add current' },
+  { "<leader>gA",  "<cmd>!git add .<CR>",         desc = 'add all' },
+  { "<leader>gb",  "<cmd>BlameToggle window<CR>", desc = 'blame' },
   { "<leader>gc",  group = "Conflict" },
   { "<leader>gh",  group = "Hunk" },
-  { "<leader>ghr", desc = "reset hunk",               mode = { "v" } },
-  { "<leader>ghs", desc = "stage hunk",               mode = { "v" } },
-  { "<leader>gi",  "<cmd>Octo issue list<CR>",        desc = 'Issues List' },
+  { "<leader>ghr", desc = "reset hunk",           mode = { "v" } },
+  { "<leader>ghs", desc = "stage hunk",           mode = { "v" } },
+  { "<leader>gi",  "<cmd>Octo issue list<CR>",    desc = 'Issues List' },
   { "<leader>gl",  group = "Log" },
   { "<leader>gm",  desc = 'blame line' },
-  { "<leader>gp",  "<cmd>Octo pr list<CR>",           desc = 'Pull Requests List' },
+  { "<leader>gp",  "<cmd>Octo pr list<CR>",       desc = 'Pull Requests List' },
   { "<leader>gw",  group = "Worktree" },
   { "<leader>gww", desc = 'worktrees' },
   { "<leader>gwc", desc = 'create worktree' },
 })
 
 wk.add({
-  { "<leader>p",  group = "Project" },
-  { "<leader>pf", desc = "file" },
-  { "<leader>pw", desc = "word" },
-  { "<leader>pr", desc = "refactor",                                                                                                                                                                                             mode = { "v", "n" } },
-  { "<leader>pt", "<cmd>TodoTrouble<CR>",                                                                                                                                                                                        desc = "todo" },
+  { "<leader>p", group = "Picker" },
 })
 
 wk.add({
@@ -130,17 +124,13 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>s",  group = "Search" },
+  { "<leader>s", group = "Search" },
 })
 
 wk.add({
   { "<leader>t",  group = "Table Mode",  mode = { "n", "v" } },
   { "<leader>tm", desc = { "toggle" } },
   { "<leader>tt", desc = { "tableize" }, mode = { "n", "v" } },
-})
-
-wk.add({
-  { "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } }
 })
 
 local function attach_markdown(bufnr)

@@ -16,7 +16,7 @@ return {
         colon_replacer = '++',                                                   -- The character to which the colon symbol will be replaced for session files.
         autoload_mode = require('session_manager.config').AutoloadMode.Disabled, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
         autosave_last_session = true,                                            -- Automatically save last session on exit and on session switch.
-        max_path_length = 80,            -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
+        max_path_length = 80,                                                    -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
       }
 
       vim.api.nvim_create_autocmd({ 'User' }, {
@@ -38,10 +38,7 @@ return {
       })
     end,
     keys = {
-      { "<leader>psl", "<cmd>SessionManager load_session<CR>",         desc = "load session" },
-      { "<leader>psL", "<cmd>SessionManager load_last_session<CR>",    desc = "load last session" },
-      { "<leader>pss", "<cmd>SessionManager save_current_session<CR>", desc = "save session" },
-      { "<leader>psm", "<cmd>SessionManager available_commands<CR>",   desc = "available commands" },
+      { "<leader>psm", "<cmd>SessionManager available_commands<CR>", desc = "available commands" },
     }
   },
 }

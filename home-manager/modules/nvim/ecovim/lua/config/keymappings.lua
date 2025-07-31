@@ -4,9 +4,6 @@ local silent = { silent = true }
 -- Fix moving forward in jumplist via <C-i>
 keymap("n", "<C-I>", "<C-I>", silent)
 
--- H to move to the first non-blank character of the line
--- keymap("n", "H", "^", silent)
-
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv", silent)
 keymap("x", "J", ":move '>+1<CR>gv-gv", silent)
@@ -15,29 +12,17 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", silent)
 keymap("v", "<", "<gv", silent)
 keymap("v", ">", ">gv", silent)
 
--- Case change in visual mode
--- keymap("v", "`", "u", silent)
--- keymap("v", "<A-`>", "U", silent)
-
--- Save file by CTRL-S
-keymap("n", "<C-s>", ":w<CR>", silent)
-keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
-
 -- Remove highlights
-keymap("n", "<CR>", ":noh<CR><CR>", silent)
+keymap("n", "<esc>", ":noh<CR><CR>", silent)
 
 -- Buffers
 keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", silent)
-keymap("n", "gn", ":bn<CR>", silent)
 keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", silent)
-keymap("n", "gp", ":bp<CR>", silent)
-keymap("n", "<S-q>", ":lua Snacks.bufdelete()<CR>", silent)
+keymap("n", "<leader>x", ":lua Snacks.bufdelete()<CR>", silent)
 
 -- Don't yank on delete char
-keymap("n", "x", '"_x', silent)
-keymap("n", "X", '"_X', silent)
-keymap("v", "x", '"_x', silent)
-keymap("v", "X", '"_X', silent)
+keymap({ "n", "v" }, "x", '"_x', silent)
+keymap({ "n", "v" }, "X", '"_X', silent)
 
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
@@ -56,16 +41,12 @@ keymap("n", "<Leader>.", ":cn<CR>", silent)
 keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", silent)
 
 -- Manually invoke speeddating in case switch.vim didn't work
-keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
-keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
-  silent)
+-- keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
+-- keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
+--   silent)
 
 -- Open links under cursor in browser with gx
-if vim.fn.has('macunix') == 1 then
-  keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
-else
-  keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
-end
+keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
 
 -- LSP
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)

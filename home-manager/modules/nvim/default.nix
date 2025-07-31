@@ -16,6 +16,7 @@
 
       # additional plugins
       gnumake
+      lazygit
     ];
 
     plugins = with pkgs.vimPlugins; [
