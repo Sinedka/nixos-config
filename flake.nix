@@ -9,7 +9,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    aniparser.url = "github:Sinedka/aniparser";
   };
 
   outputs =
@@ -18,7 +17,6 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      aniparser,
       ...
     }@inputs:
     let
@@ -64,7 +62,7 @@
       homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {
-          inherit inputs homeStateVersion user unstable aniparser;
+          inherit inputs homeStateVersion user unstable;
         };
 
         modules = [

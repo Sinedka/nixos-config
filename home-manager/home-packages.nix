@@ -10,20 +10,14 @@
     nodejs
     wl-clipboard
     lua-language-server
-    # spotify
-    cider
-
     wget
     cmatrix
     git
     fastfetch
-
     papirus-icon-theme
     glib
-
     libsForQt5.qt5ct
     qt6ct
-    
     xdg-desktop-portal-hyprland
     xdg-user-dirs
     jq
@@ -33,8 +27,6 @@
     brightnessctl 
     cava
     playerctl
-    git
-    tmux
     kitty
     firefox
     gcc
@@ -46,12 +38,9 @@
     electron
     openssl
     yad
-    modrinth-app
     prismlauncher
-    kdePackages.dolphin
     pavucontrol
     nftables
-
 
     # fonts
     material-symbols
