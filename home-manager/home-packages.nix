@@ -35,12 +35,12 @@
     nil
     wl-clipboard
     nix-prefetch
-    electron
     openssl
     yad
     prismlauncher
     pavucontrol
     nftables
+    hyprshot
 
     # fonts
     material-symbols
@@ -48,7 +48,6 @@
     nerd-fonts.fira-code
     rubik
     grim
-    hyprshot
   ];
 
 }
