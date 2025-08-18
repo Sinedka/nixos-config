@@ -6,67 +6,33 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      ...
-    }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      homeStateVersion = "25.05";
-      unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
+      unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
       user = "sinedka";
-      hosts = [
-        {
-          hostname = "nixosuser";
-          stateVersion = "25.05";
-        }
-      ];
+      hostname = "nixosuser";
+      stateVersion = "25.05";
       system = "x86_64-linux";
-      makeSystem =
-        { hostname, stateVersion }:
-        nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = {
-            inherit
-              inputs
-              stateVersion
-              hostname
-              user
-              ;
-          };
-
-          modules = [
-            ./hosts/${hostname}/configuration.nix
-          ];
-        };
     in
     {
-      nixosConfigurations = nixpkgs.lib.foldl' (
-        configs: host:
-        configs
-        // {
-          "${host.hostname}" = makeSystem {
-            inherit (host) hostname stateVersion;
-          };
-        }
-      ) { } hosts;
-
-      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {
-          inherit inputs homeStateVersion user unstable;
-        };
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs stateVersion hostname user unstable; };
 
         modules = [
-          ./home-manager/home.nix
+          ./hosts/${hostname}/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${user} = ./home-manager/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable; };
+          }
         ];
       };
     };
