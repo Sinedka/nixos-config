@@ -115,7 +115,7 @@ in{
       "Super, Return, exec, ${pkgs.kitty}/bin/kitty -1"
       "Super, T, exec, ${pkgs.kitty}/bin/kitty -1"
       # "Super, E, exec, ${pkgs.dolphin}/bin/dolphin --new-window"
-      "Super, W, exec, ${pkgs.firefox}/bin/firefox"
+      "Super, W, exec, ${pkgs.brave}/bin/brave"
       "Ctrl+Super, Backslash, resizeactive, exact 640 480"
 
       # Смена обоев и перезапуск виджетов

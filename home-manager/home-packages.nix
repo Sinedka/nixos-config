@@ -40,6 +40,7 @@
     pavucontrol
     nftables
     hyprshot
+    brave
 
     # fonts
     material-symbols
@@ -47,6 +48,7 @@
     nerd-fonts.fira-code
     rubik
     grim
+    
   ];
 
 }
