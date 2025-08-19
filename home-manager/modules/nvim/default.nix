@@ -45,7 +45,6 @@
           marks-nvim
           mini-ai
           mini-align
-          multicursors-nvim
           # neovim-session-manager
           noice-nvim
           nui-nvim
