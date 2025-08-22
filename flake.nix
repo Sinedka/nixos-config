@@ -9,15 +9,18 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aniparser.url = "github:sinedka/aniparser";
+    aniparser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
+      system = "x86_64-linux";
       unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+      aniparser = inputs.aniparser.packages.${system}.default;
       user = "sinedka";
       hostname = "nixosuser";
       stateVersion = "25.05";
-      system = "x86_64-linux";
     in
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
@@ -31,7 +34,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${user} = ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable; };
+            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable aniparser; };
           }
         ];
       };

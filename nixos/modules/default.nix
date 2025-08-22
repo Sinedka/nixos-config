@@ -13,6 +13,7 @@
     ./net.nix
     ./nh.nix
     ./nix.nix
+    ./sddm.nix
     ./timezone.nix
     ./upower.nix
     ./user.nix

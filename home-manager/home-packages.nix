@@ -2,7 +2,7 @@
 {
   fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     htop
     python3
     unzip
@@ -41,6 +41,7 @@
     nftables
     hyprshot
     brave
+    zoom
 
     # fonts
     material-symbols
@@ -48,7 +49,8 @@
     nerd-fonts.fira-code
     rubik
     grim
-    
-  ];
+  ]) ++ ([
+    aniparser
+  ]);
 
 }
