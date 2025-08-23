@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    aniparser.url = "github:sinedka/aniparser";
+    aniparser.url = "github:sinedka/aniparser-flake";
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
   };
 

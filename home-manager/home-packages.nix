@@ -43,6 +43,7 @@
     brave
     zoom
     nautilus
+    killall
 
     # fonts
     material-symbols

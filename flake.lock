@@ -8,16 +8,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1755775782,
-        "narHash": "sha256-zCQkXHA5cgCvXFUUcTMAqFol3nCHYvb4OkXrpAq8XB4=",
+        "lastModified": 1755968717,
+        "narHash": "sha256-dDeQ0BN0O42+hmpseqLD2OFyUZDSe2evxg5lOSWPVAw=",
         "owner": "sinedka",
-        "repo": "aniparser",
-        "rev": "cda1f09299272ddba88c6dea43a7b200bd042b89",
+        "repo": "aniparser-flake",
+        "rev": "88b8378e1b5fdebe662324a7c078dec8ec0b0787",
         "type": "github"
       },
       "original": {
         "owner": "sinedka",
-        "repo": "aniparser",
+        "repo": "aniparser-flake",
         "type": "github"
       }
     },
