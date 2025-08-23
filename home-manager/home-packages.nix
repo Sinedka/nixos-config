@@ -42,6 +42,7 @@
     hyprshot
     brave
     zoom
+    nautilus
 
     # fonts
     material-symbols
