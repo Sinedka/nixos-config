@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   imports = [
     ./binds.nix
@@ -9,5 +10,7 @@
     ./env.nix
   ];
 
-  home.file.".config/record.sh".source = ./record.sh;
+  home.packages = [
+    (pkgs.callPackage ./default.nix {})
+  ];
 }
