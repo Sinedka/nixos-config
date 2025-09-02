@@ -17,6 +17,7 @@
       # additional plugins
       gnumake
       lazygit
+      clang-tools
     ];
 
     plugins = with pkgs.vimPlugins; [

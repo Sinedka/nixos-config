@@ -129,6 +129,13 @@ lspconfig.prismals.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.clangd.setup{
+    cmd = { "clangd", "--background-index" },  -- Можно добавить опции, если нужно
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+    root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+    capabilities = capabilities,
+}
+
 -- UFO setup for code folding
 require("ufo").setup({
 	fold_virt_text_handler = ufo_config_handler,

@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   imports = [
     ./audio.nix
@@ -23,4 +24,10 @@ nixpkgs.config.allowUnfree = true;
     enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+     via
+  ];
+  services.udev.packages = [ pkgs.via ];
+
+  hardware.keyboard.qmk.enable = true;
 }

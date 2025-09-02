@@ -43,7 +43,18 @@
     brave
     zoom
     nautilus
-    killall
+    hyprpicker
+    wf-recorder
+    slurp
+    quickemu
+    spotify
+    quickgui
+    qmk
+    qmk-udev-rules # the only relevant
+    qmk_hid
+    via
+    vial
+    mpv
 
     # fonts
     material-symbols

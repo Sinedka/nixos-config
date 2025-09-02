@@ -21,7 +21,16 @@ return {
           typescript = { "prettier" },
           typescriptreact = { "prettier" },
           yaml = { "prettier" },
+          c = { "clang-format" },
+          cpp = { "clang-format" },
           xml = { "xmlformatter" }
+        },
+
+        formatters = {
+          ["clang-format"] = {
+            command = "clang-format",
+            args = '--style=file',
+          },
         },
       })
 

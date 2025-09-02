@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755968717,
-        "narHash": "sha256-dDeQ0BN0O42+hmpseqLD2OFyUZDSe2evxg5lOSWPVAw=",
+        "lastModified": 1756487522,
+        "narHash": "sha256-WO7vhD6FHkegtJ622RzzDfom9m2mI9AJIZw5+rEqZVg=",
         "owner": "sinedka",
         "repo": "aniparser-flake",
-        "rev": "88b8378e1b5fdebe662324a7c078dec8ec0b0787",
+        "rev": "840d135578559069bb732aecfc52d891d9ecfca5",
         "type": "github"
       },
       "original": {
