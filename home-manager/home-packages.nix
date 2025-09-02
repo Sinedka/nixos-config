@@ -56,6 +56,7 @@
     vial
     mpv
 
+
     # fonts
     material-symbols
     nerd-fonts.jetbrains-mono
@@ -64,6 +65,8 @@
     grim
   ]) ++ ([
     aniparser
+    (pkgs.callPackage ./default.nix {})
+
   ]);
 
 }

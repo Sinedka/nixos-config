@@ -1,4 +1,3 @@
-{pkgs, ...}:
 {
   imports = [
     ./binds.nix
@@ -8,9 +7,5 @@
     # ./hypridle.nix
     ./rules.nix
     ./env.nix
-  ];
-
-  home.packages = [
-    (pkgs.callPackage ./default.nix {})
   ];
 }
