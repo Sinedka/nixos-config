@@ -65,7 +65,7 @@
     grim
   ]) ++ ([
     aniparser
-    (pkgs.callPackage ./default.nix {})
+    (pkgs.callPackage ./screen-rec.nix {})
 
   ]);
 

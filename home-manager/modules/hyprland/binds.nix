@@ -29,7 +29,7 @@ in{
 
       # Утилиты - скриншоты, запись, OCR, цвета
       "Super+Shift, S, exec, hyprshot --freeze --clipboard-only --mode region --silent"
-      "Super+Shift, R, exec, screenrec-toggle"
+      "Super+Shift, R, exec, screen-rec-toggle"
       "Super+Shift+Alt, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
       "Super+Shift, T, exec, grim -g \"$(slurp $SLURP_ARGS)\" \"tmp.png\" && tesseract \"tmp.png\" - | wl-copy && rm \"tmp.png\""
       "Super+Shift, C, exec, hyprpicker -a"
