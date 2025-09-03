@@ -127,12 +127,6 @@ wk.add({
   { "<leader>s", group = "Search" },
 })
 
-wk.add({
-  { "<leader>t",  group = "Table Mode",  mode = { "n", "v" } },
-  { "<leader>tm", desc = { "toggle" } },
-  { "<leader>tt", desc = { "tableize" }, mode = { "n", "v" } },
-})
-
 local function attach_markdown(bufnr)
   wk.add({
     { "<leader>a",  group = "Actions",                buffer = bufnr },

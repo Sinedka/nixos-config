@@ -150,7 +150,6 @@ in{
       "Super, N, Toggle right sidebar, global, quickshell:sidebarRightToggle"
       "Super, M, Toggle media controls, global, quickshell:mediaControlsToggle"
       "Ctrl+Alt, Delete, Toggle session menu, global, quickshell:sessionToggle"
-      "Super+Shift, S, Screen snip, exec, hyprshot --freeze --clipboard-only --mode region --silent"
       "Super+Shift+Alt, S, Screen snip and annotate, exec, grim -g \"$(slurp)\" - | swappy -f -"
       "Super+Shift, T, Character recognition, exec, grim -g \"$(slurp $SLURP_ARGS)\" \"tmp.png\" && tesseract \"tmp.png\" - | wl-copy && rm \"tmp.png\""
       "Ctrl+Super, T, Change wallpaper, exec, ~/.config/quickshell/scripts/switchwall.sh"

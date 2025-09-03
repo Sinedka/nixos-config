@@ -8,11 +8,57 @@ local c = require("tokyonight.colors").setup()
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup Colorscheme                                        │
 -- ╰──────────────────────────────────────────────────────────╯
+
+-- Добавляем функционал для сохранения состояния прозрачности
+local config_file = vim.fn.stdpath("data") .. "/transparency.json"
+
+-- Функция для чтения сохраненного состояния
+local function load_transparency_state()
+  local f = io.open(config_file, "r")
+  if f then
+    local content = f:read("*all")
+    f:close()
+    local data = vim.fn.json_decode(content)
+    if type(data) == "table" and data.transparent ~= nil then
+      return data.transparent
+    end
+  end
+  return true -- По умолчанию прозрачность включена
+end
+
+-- Функция для сохранения состояния
+local function save_transparency_state(state)
+  local data = vim.fn.json_encode({ transparent = state })
+  local f = io.open(config_file, "w")
+  if f then
+    f:write(data)
+    f:close()
+  end
+end
+
+-- Загружаем сохраненное состояние
+local is_transparent = load_transparency_state()
+
+local function toggle_transparency()
+  is_transparent = not is_transparent
+  tokyonight.setup({
+    transparent = is_transparent,
+  })
+  vim.cmd([[colorscheme tokyonight]])
+  vim.notify("Прозрачность " .. (is_transparent and "включена" or "выключена"))
+
+  -- Сохраняем новое состояние
+  save_transparency_state(is_transparent)
+end
+
+vim.keymap.set("n", "<leader>tt", toggle_transparency, { desc = "Переключить прозрачность темы" })
+
+
 tokyonight.setup({
   style = "moon",
-  light_style = "day", -- The theme is used when the background is set to light
-  transparent = true, -- Enable this to disable setting the background color
-  terminal_colors = true,                        -- Configure the colors used when opening a `:terminal` in Neovim
+  light_style = "day",          -- The theme is used when the background is set to light
+  transparent = is_transparent, -- Enable this to disable setting the background color
+  terminal_colors = true,       -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -22,15 +68,15 @@ tokyonight.setup({
     variables = {},
     -- Background styles. Can be "dark", "transparent" or "normal"
     sidebars = "transparent", -- style for sidebars, see below
-    floats = "transparent", -- style for floating windows
+    floats = "transparent",   -- style for floating windows
   },
   -- sidebars = { "qf", "help", "snacks_layout_box", "snacks_picker_list" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  day_brightness = 0.3,                                                   -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
   -- hide_inactive_statusline = false,                                       -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false,                                                   -- dims inactive windows
-  lualine_bold = false,                                                   -- When `true`, section headers in the lualine theme will be bold
+  dim_inactive = false, -- dims inactive windows
+  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
 
-  cache = true,                                                           -- When set to true, the theme will be cached for better performance
+  cache = true,         -- When set to true, the theme will be cached for better performance
   ---@type table<string, boolean|{enabled:boolean}>
   plugins = {
     -- enable all plugins when not using lazy.nvim
