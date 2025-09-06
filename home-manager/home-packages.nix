@@ -55,6 +55,7 @@
     via
     vial
     mpv
+    glslls
 
 
     # fonts

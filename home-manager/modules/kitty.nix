@@ -1,4 +1,8 @@
+{pkgs, ...}:
 {
+  home.packages = [
+    pkgs.imagemagick
+  ];
   programs.kitty = {
     enable = true;
     

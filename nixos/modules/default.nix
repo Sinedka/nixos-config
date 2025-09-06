@@ -27,6 +27,9 @@ nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
      via
   ];
+
+  hardware.opengl.extraPackages = with pkgs; [ intel-ocl ];
+
   services.udev.packages = [ pkgs.via ];
 
   hardware.keyboard.qmk.enable = true;
