@@ -28,7 +28,7 @@ nixpkgs.config.allowUnfree = true;
      via
   ];
 
-  hardware.opengl.extraPackages = with pkgs; [ intel-ocl ];
+  # hardware.opengl.extraPackages = with pkgs; [ intel-ocl ];
 
   services.udev.packages = [ pkgs.via ];
 

@@ -63,6 +63,13 @@ lspconfig.cssls.setup({
   settings = require("config.lsp.servers.cssls").settings,
 })
 
+require("lspconfig").qmlls.setup {
+  cmd = {"qmlls", "-E"},
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach=on_attach
+}
+
 -- ESLint LSP
 lspconfig.eslint.setup({
   capabilities = capabilities,
@@ -140,6 +147,8 @@ lspconfig.clangd.setup {
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
   capabilities = capabilities,
+  handlers=handlers,
+  on_attach=on_attach,
 }
 
 -- UFO setup for code folding
