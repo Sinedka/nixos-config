@@ -1,0 +1,5 @@
+module common
+Appearance 1.0 Appearance.qml
+ConfigOptions 1.0 ConfigOptions.qml
+Directories 1.0 Directories.qml
+PersistentStates 1.0 PersistentStates.qml

@@ -1,4 +1,4 @@
-{ pkgs, unstable, aniparser, ... }: 
+{ pkgs, unstable, aniparser, caelestia-shell, ... }: 
 {
   fonts.fontconfig.enable = true;
 
@@ -56,6 +56,7 @@
     vial
     mpv
     glslls
+    qt6.full
 
 
     # fonts
@@ -64,9 +65,11 @@
     nerd-fonts.fira-code
     rubik
     grim
+    
   ]) ++ ([
     aniparser
     (pkgs.callPackage ./screen-rec.nix {})
+    caelestia-shell
 
   ]);
 

@@ -10,5 +10,6 @@
     ./cursor.nix
     ./gtk.nix
     ./kitty.nix
+    ./caelestia-dots.nix
   ];
 }
