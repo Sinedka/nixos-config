@@ -70,7 +70,6 @@
     aniparser
     (pkgs.callPackage ./screen-rec.nix {})
     caelestia-shell
-
   ]);
 
 }
