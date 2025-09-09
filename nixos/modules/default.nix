@@ -11,6 +11,7 @@
     ./home-manager.nix
     ./hyprland.nix
     ./nekoray.nix
+    ./vaapi.nix
     ./net.nix
     ./nh.nix
     ./nix.nix

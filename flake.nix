@@ -13,7 +13,12 @@
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+      url = "github:sinedka/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -24,6 +29,7 @@
       unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
       aniparser = inputs.aniparser.packages.${system}.default;
       caelestia-shell = inputs.caelestia-shell.packages.${system}.default;
+      caelestia-cli = inputs.caelestia-cli.packages.${system}.default;
       user = "sinedka";
       hostname = "nixosuser";
       stateVersion = "25.05";
@@ -40,7 +46,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${user} = ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable aniparser caelestia-shell; };
+            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable aniparser caelestia-shell caelestia-cli; };
           }
         ];
       };
