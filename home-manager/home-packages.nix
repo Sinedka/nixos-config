@@ -57,6 +57,7 @@
     mpv
     glslls
     qt6.full
+    calibre
 
 
     # fonts
