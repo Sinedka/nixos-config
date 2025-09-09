@@ -21,6 +21,10 @@
       url = "github:caelestia-dots/cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -28,8 +32,8 @@
       system = "x86_64-linux";
       unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
       aniparser = inputs.aniparser.packages.${system}.default;
-      caelestia-shell = inputs.caelestia-shell.packages.${system}.default;
-      caelestia-cli = inputs.caelestia-cli.packages.${system}.default;
+      caelestia-cli = inputs.caelestia-cli.packages.${system}.with-shell;
+      zen-browser = inputs.zen-browser.packages."${system}".specific;
       user = "sinedka";
       hostname = "nixosuser";
       stateVersion = "25.05";
@@ -45,8 +49,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${user} = ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable aniparser caelestia-shell caelestia-cli; };
+            home-manager.users.${user}.imports = [ ./home-manager/home.nix inputs.zen-browser.homeModules.beta ];
+
+            # home-manager.users.${user} = ./home-manager/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable aniparser caelestia-cli; };
           }
         ];
       };

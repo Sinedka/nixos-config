@@ -1,4 +1,4 @@
-{ pkgs, unstable, aniparser, caelestia-shell, caelestia-cli, ... }: 
+{ pkgs, unstable, aniparser, caelestia-cli, ... }: 
 {
   fonts.fontconfig.enable = true;
 
@@ -70,7 +70,6 @@
   ]) ++ ([
     aniparser
     (pkgs.callPackage ./screen-rec.nix {})
-    caelestia-shell
     caelestia-cli
   ]);
 
