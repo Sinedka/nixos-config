@@ -1,5 +1,6 @@
 {
   imports = [
+    ./caelestia
     ./console
     ./git
     ./hyprland

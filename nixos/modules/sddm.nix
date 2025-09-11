@@ -1,35 +1,34 @@
 { config, pkgs, ... }:
-
 let
-  custom-sddm-astronaut = pkgs.sddm-astronaut;
-  # custom-sddm-astronaut = pkgs.sddm-astronaut.override {
-  #   embeddedTheme = "hyprland_kath";
-  # };
+  custom-sddm-astronaut = pkgs.sddm-astronaut.override {
+    embeddedTheme = "hyprland_kath";
+    #themeConfig = {
+    #  Background = "path/to/background.jpg";
+    #  Font = "M+1 Nerd Font";
+    #};
+  };
 
 in {
+  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
+    wayland.enable = true;
     enable = true;
-    wayland = {
-      enable = true;
-      compositor = "weston";
-    };
-    autoNumlock = true;
-    enableHidpi = true;
-    theme = "sddm-astronaut-theme";
-    settings = {
-      Theme = {
-        Current = "sddm-astronaut-theme";
-        CursorTheme = "Bibata-Modern-Classic";
-        CursorSize = 24;
-      };
-    };
     # extraPackages = with pkgs; [
     #   custom-sddm-astronaut
-    # ];
+    #  ];
+
+    theme = "sddm-sugar-dark";
+    settings = {
+      Theme = {
+        Current = "sddm-sugar-dark";
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
     custom-sddm-astronaut
+    sddm-sugar-dark
     kdePackages.qtmultimedia
   ];
+
 }
