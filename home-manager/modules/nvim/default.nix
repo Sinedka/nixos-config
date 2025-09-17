@@ -27,13 +27,12 @@
     extraLuaConfig =
       let
         plugins = with pkgs.vimPlugins; [
+          nvim-notify
           alpha-nvim
-          blink-copilot
           blink-cmp
           blink-compat
           bufferline-nvim
           comment-nvim
-          copilot-lua
           fidget-nvim
           flash-nvim
           friendly-snippets
@@ -131,7 +130,7 @@
         lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
       in
       ''
-        require('config.EcoVim')
+        require('config.MainConf')
         require('utils.globals')
         require('utils.functions')
        

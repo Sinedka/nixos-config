@@ -1,14 +1,6 @@
-------------------------------------------------
---                                            --
---    This is a main configuration file for    --
---                    EcoVim                  --
---      Change variables which you need to    --
---                                            --
-------------------------------------------------
-
 local icons = require("utils.icons")
 
-EcoVim = {
+MainConf = {
   colorscheme = "tokyonight-night",
   ui = {
     font = { "FiraCode Nerd Font", ":h14" },

@@ -1,4 +1,4 @@
-local icons = EcoVim.icons
+local icons = MainConf.icons
 
 return {
   {

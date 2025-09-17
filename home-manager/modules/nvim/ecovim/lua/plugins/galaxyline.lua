@@ -354,7 +354,7 @@ return {
       table.insert(gls.left, {
         DiagnosticError = {
           provider = 'DiagnosticError',
-          icon = EcoVim.icons.errorOutline,
+          icon = MainConf.icons.errorOutline,
           separator_highlight = { colors.gitbg, colors.bg },
           highlight = { colors.diagerror, colors.lspbg }
         }
@@ -369,14 +369,14 @@ return {
       table.insert(gls.left, {
         DiagnosticHint = {
           provider = 'DiagnosticHint',
-          icon = EcoVim.icons.lightbulbOutline,
+          icon = MainConf.icons.lightbulbOutline,
           highlight = { colors.diaghint, colors.lspbg }
         }
       })
       table.insert(gls.left, {
         DiagnosticInfo = {
           provider = 'DiagnosticInfo',
-          icon = EcoVim.icons.infoOutline,
+          icon = MainConf.icons.infoOutline,
           highlight = { colors.diaginfo, colors.lspbg }
         }
       })
@@ -442,7 +442,7 @@ return {
         }
       })
 
-      if EcoVim.statusline.path_enabled then
+      if MainConf.statusline.path_enabled then
         table.insert(gls.right, {
           FileName = {
             provider = function()
@@ -450,7 +450,7 @@ return {
                 return ''
               end
 
-              if EcoVim.statusline.path == 'relative' then
+              if MainConf.statusline.path == 'relative' then
                 local fname = vim.fn.expand('%:p')
                 return fname:gsub(vim.fn.getcwd() .. '/', '') .. ' '
               end

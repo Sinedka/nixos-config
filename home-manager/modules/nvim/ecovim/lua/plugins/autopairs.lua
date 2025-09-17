@@ -15,9 +15,9 @@ return {
       local npairs = require('nvim-autopairs')
       npairs.setup()
 
-      for _, i in ipairs(npairs.config.rules) do
-        i.key_map = nil
-      end
+      -- for _, i in ipairs(npairs.config.rules) do
+      --   i.key_map = nil
+      -- end
     end
   }
 }

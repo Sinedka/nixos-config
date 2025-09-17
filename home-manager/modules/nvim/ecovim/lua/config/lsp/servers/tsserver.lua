@@ -6,11 +6,11 @@ local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,
-    border = EcoVim.ui.float.border or "rounded",
+    border = "rounded",
   }),
   ["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
-      border = EcoVim.ui.float.border or "rounded",
+      border = "rounded",
     }
   ),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(

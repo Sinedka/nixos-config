@@ -60,7 +60,7 @@ M.gps = function()
   else
     if not isempty(navic_location) then
       local hl_group = "Winbar"
-      return retval .. " " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*" .. " " .. navic_location
+      return retval .. " " .. "%#" .. hl_group .. "#" .. MainConf.icons.caretRight .. "%*" .. " " .. navic_location
     else
       return retval
     end

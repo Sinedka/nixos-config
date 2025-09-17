@@ -41,7 +41,6 @@
     nftables
     hyprshot
     brave
-    zoom
     nautilus
     hyprpicker
     wf-recorder
@@ -58,6 +57,8 @@
     glslls
     qt6.full
     calibre
+    zoom-us
+    os-prober
 
 
     # fonts

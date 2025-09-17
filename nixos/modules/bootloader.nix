@@ -5,19 +5,23 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
-      extraEntries = '''';
+      extraEntries = ''
+        menuentry "Windows Boot Manager" {
+          insmod part_gpt
+          insmod fat
+          set root='hd0,gpt1'
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
+
+        menuentry "Arch Linux" {
+          insmod part_gpt
+          insmod ext2
+          set root='hd0,gpt6'
+          linux /boot/vmlinuz-linux root=/dev/nvme0n1p6 rw
+          initrd /boot/initramfs-linux.img
+        }
+      '';
     };
-    grub.theme = pkgs.stdenv.mkDerivation {
-      pname = "minegrub-theme";
-      version = "3.1";
-      src = pkgs.fetchFromGitHub {
-        owner = "Lxtharia";
-        repo = "minegrub-theme";
-        rev = "v3.1.0";
-      hash = "sha256-+7b0jXVVAyIAtYKeZZONZv2qzfESjwITSng1TVjyAfQ=";
-      };
-      installPhase = "cp -r minegrub $out";
-};
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";

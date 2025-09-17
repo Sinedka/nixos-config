@@ -28,7 +28,7 @@ wk.setup {
     group = "+", -- symbol prepended to a group
   },
   win = {
-    border = EcoVim.ui.float.border or "rounded", -- none, single, double, shadow, rounded
+    border = "rounded", -- none, single, double, shadow, rounded
     padding = { 2, 2, 2, 2 },                     -- extra window padding [top, right, bottom, left]
   },
   layout = {

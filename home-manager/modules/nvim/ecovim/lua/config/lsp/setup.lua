@@ -6,16 +6,16 @@ local lspconfig = require("lspconfig")
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,
-    border = EcoVim.ui.float.border,
+    border = "rounded",
   }),
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = EcoVim.ui.float.border,
+    border = "rounded",
   }),
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-local function on_attach(client, bufnr)
+local function on_attach(_, bufnr)
   vim.lsp.inlay_hint.enable(true, { bufnr })
 end
 
@@ -23,7 +23,7 @@ end
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
-  opts.border = opts.border or EcoVim.ui.float.border or "rounded"
+  opts.border = opts.border or "rounded"
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
@@ -64,10 +64,10 @@ lspconfig.cssls.setup({
 })
 
 require("lspconfig").qmlls.setup {
-  cmd = {"qmlls", "-E"},
+  cmd = { "qmlls", "-E" },
   capabilities = capabilities,
   handlers = handlers,
-  on_attach=on_attach
+  on_attach = on_attach
 }
 
 -- ESLint LSP
@@ -143,12 +143,12 @@ lspconfig.prismals.setup({
 })
 
 lspconfig.clangd.setup {
-  cmd = { "clangd", "--background-index" },   -- Можно добавить опции, если нужно
+  cmd = { "clangd", "--background-index" }, -- Можно добавить опции, если нужно
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
   capabilities = capabilities,
-  handlers=handlers,
-  on_attach=on_attach,
+  handlers = handlers,
+  on_attach = on_attach,
 }
 
 -- UFO setup for code folding
