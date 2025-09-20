@@ -65,17 +65,14 @@
           package-info-nvim
           plenary-nvim
           popup-nvim
-          # printer-nvim
           promise-async
           rainbow-delimiters-nvim
           smart-splits-nvim
           snacks-nvim
-          # stay-in-place-nvim
           switch-vim
           telescope-fzf-native-nvim
           telescope-nvim
           todo-comments-nvim
-          # ts-error-translator-nvim
           typescript-tools-nvim
           ultimate-autopair-nvim
           vim-repeat
@@ -88,7 +85,6 @@
           conform-nvim
           diffview-nvim
           FixCursorHold-nvim
-          # fzf
           fzf-lua
           gitlinker-nvim
           gitsigns-nvim
@@ -100,7 +96,6 @@
           nvim-bqf
           nvim-coverage
           nvim-dap
-          # nvim-dap-repl-highlights
           nvim-dap-ui
           nvim-dap-virtual-text
           nvim-lint
@@ -111,15 +106,11 @@
           octo-nvim
           refactoring-nvim
           render-markdown-nvim
-          # tailwind-fold-nvim
-          # tailwind-sorter-nvim
           template-string-nvim
           text-case-nvim
           toggleterm-nvim
           treesj
           tsc-nvim
-          # tw-values-nvim
-          # vim-maximizer
           vim-table-mode
         ];
         mkEntryFromDrv = drv:
@@ -164,7 +155,7 @@
           },
           debug = false,
           ui = {
-            border = EcoVim.ui.float.border,
+            border = "rounded",
           }
         })
 

@@ -1,6 +1,7 @@
 {pkgs, ...}:
 {
   home.file.".config/hypr".source = ./hypr;
+  home.file.".config/hypr".recursive = true;
   
   # deps
   home.packages = (with pkgs; [
