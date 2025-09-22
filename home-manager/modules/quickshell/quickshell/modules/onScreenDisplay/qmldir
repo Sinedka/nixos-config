@@ -1,4 +1,0 @@
-module onScreenDisplay
-OnScreenDisplayBrightness 1.0 OnScreenDisplayBrightness.qml
-OnScreenDisplayVolume 1.0 OnScreenDisplayVolume.qml
-OsdValueIndicator 1.0 OsdValueIndicator.qml

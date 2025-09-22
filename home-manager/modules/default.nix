@@ -5,7 +5,6 @@
     ./git
     ./hyprland
     ./nvim
-    # ./quickshell
     ./vesktop
     ./bash.nix
     ./cursor.nix
