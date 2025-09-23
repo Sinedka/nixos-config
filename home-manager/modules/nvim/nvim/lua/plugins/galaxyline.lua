@@ -354,7 +354,7 @@ return {
       table.insert(gls.left, {
         DiagnosticError = {
           provider = 'DiagnosticError',
-          icon = MainConf.icons.errorOutline,
+          icon = Icons.errorOutline,
           separator_highlight = { colors.gitbg, colors.bg },
           highlight = { colors.diagerror, colors.lspbg }
         }
@@ -369,14 +369,14 @@ return {
       table.insert(gls.left, {
         DiagnosticHint = {
           provider = 'DiagnosticHint',
-          icon = MainConf.icons.lightbulbOutline,
+          icon = Icons.lightbulbOutline,
           highlight = { colors.diaghint, colors.lspbg }
         }
       })
       table.insert(gls.left, {
         DiagnosticInfo = {
           provider = 'DiagnosticInfo',
-          icon = MainConf.icons.infoOutline,
+          icon = Icons.infoOutline,
           highlight = { colors.diaginfo, colors.lspbg }
         }
       })
@@ -441,27 +441,6 @@ return {
           highlight = { colors.typeicon, colors.typebg }
         }
       })
-
-      if MainConf.statusline.path_enabled then
-        table.insert(gls.right, {
-          FileName = {
-            provider = function()
-              if #vim.fn.expand '%:p' == 0 then
-                return ''
-              end
-
-              if MainConf.statusline.path == 'relative' then
-                local fname = vim.fn.expand('%:p')
-                return fname:gsub(vim.fn.getcwd() .. '/', '') .. ' '
-              end
-
-              return vim.fn.expand '%:t' .. ' '
-            end,
-            separator_highlight = { 'NONE', colors.typebg },
-            highlight = { colors.typetext, colors.typebg }
-          }
-        })
-      end
       table.insert(gls.right, {
         FileIcon = {
           provider = 'FileIcon',

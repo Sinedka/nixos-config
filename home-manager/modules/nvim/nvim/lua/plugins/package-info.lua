@@ -1,4 +1,4 @@
-local icons = MainConf.icons
+local icons = Icons
 
 return {
   {

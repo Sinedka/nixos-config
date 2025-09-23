@@ -12,7 +12,7 @@ return {
           preference = nil,
         },
         highlight = true,
-        separator = " " .. MainConf.icons.caretRight .. " ",
+        separator = "  ",
         depth_limit = 0,
         depth_limit_indicator = "..",
         safe_output = true

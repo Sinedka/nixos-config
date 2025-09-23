@@ -1,4 +1,4 @@
-require('config.MainConf')
+require('utils.icons')
 
 require('utils.globals')
 require('utils.functions')

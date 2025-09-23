@@ -1,4 +1,4 @@
-local icons     = MainConf.icons
+local icons     = Icons
 
 local git_icons = {
   added = icons.gitAdd,
