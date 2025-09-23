@@ -1,7 +1,6 @@
 require('utils.icons')
 
 require('utils.globals')
-require('utils.functions')
 
 require('config.options')
 require('config.lazy')
