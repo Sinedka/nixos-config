@@ -3,8 +3,8 @@ return {
     "SmiteshP/nvim-navic",
     event = { "CursorMoved", "BufWinEnter", "BufFilePost" },
     config = function()
-      vim.api.nvim_set_hl(0, "NavicText", { link = "Winbar" })
-      vim.api.nvim_set_hl(0, "NavicSeparator", { link = "Winbar" })
+      -- vim.api.nvim_set_hl(0, "NavicText", { link = "Winbar" })
+      -- vim.api.nvim_set_hl(0, "NavicSeparator", { link = "Winbar" })
 
       require('nvim-navic').setup({
         lsp = {

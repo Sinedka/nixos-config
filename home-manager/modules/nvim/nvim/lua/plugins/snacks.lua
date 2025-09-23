@@ -58,11 +58,6 @@ return {
       { "<leader>gla", function() Snacks.lazygit.log() end,                                    desc = "Lazygit Log (cwd)" },
       { "<leader>glc", function() Snacks.lazygit.log_file() end,                               desc = "Lazygit Current File History" },
       -- ╭─────────────────────────────────────────────────────────╮
-      -- │ Zen                                                     │
-      -- ╰─────────────────────────────────────────────────────────╯
-      { "<leader>z",   function() Snacks.zen({ win = { width = 200 } }) end,                   desc = "Zen Mode" },
-      { "<leader>Z",   function() Snacks.zen.zoom() end,                                       desc = "Zoom Mode" },
-      -- ╭─────────────────────────────────────────────────────────╮
       -- │ Picker                                                  │
       -- ╰─────────────────────────────────────────────────────────╯
       { "<leader>e",  function() Snacks.picker.explorer() end,                                desc = "explorer" },
@@ -80,8 +75,6 @@ return {
       { "<leader>sH",  function() Snacks.picker.command_history() end,                         desc = "command history" },
       { "<leader>ss",  function() Snacks.picker.search_history() end,                          desc = "search history" },
       { "<leader>sq",  function() Snacks.picker.qflist() end,                                  desc = "quickfix list" },
-      { "<leader>sc",  function() Snacks.picker.colorschemes() end,                            desc = "color schemes" },
-      { "<leader>sd",  function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "dotfiles" },
 
       { "<leader>gf",  function() Snacks.picker.git_files() end,                               desc = "git files" },
       { "<leader>gs",  function() Snacks.picker.git_status() end,                              desc = "git status" },
