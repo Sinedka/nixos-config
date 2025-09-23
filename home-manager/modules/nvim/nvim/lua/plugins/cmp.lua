@@ -9,6 +9,8 @@ return {
       "hrsh7th/cmp-nvim-lua",
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
+
+      -- LuaSnip
       {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
@@ -19,37 +21,47 @@ return {
           })
         end,
       },
+
+      -- Windsurf AI completion
+      -- {
+      --   "Exafunction/windsurf.nvim",
+      --   event = "VeryLazy",
+      --   config = function()
+      --     require("codeium").setup({
+      --       -- тут можно указать API-ключ и опции, если нужно
+      --       -- api_key = os.getenv("WINDSURF_API_KEY"),
+      --       -- enable_inline_completion = true,
+      --       -- enable_suggestions = true,
+      --     })
+      --   end,
+      -- },
+      -- "windsurf-ai/cmp-windsurf", -- источник для nvim-cmp
     },
 
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
 
-      -- Иконки (appearance.kind_icons)
       local kind_icons = {
         Copilot = "",
+        Windsurf = "󱚣", -- иконка для Windsurf
         Text = '󰉿',
         Method = '󰊕',
         Function = '󰊕',
         Constructor = '󰒓',
-
         Field = '󰜢',
         Variable = '󰆦',
         Property = '󰖷',
-
         Class = '󱡠',
         Interface = '󱡠',
         Struct = '󱡠',
         Module = '󰅩',
-
         Unit = '󰪚',
         Value = '󰦨',
         Enum = '󰦨',
         EnumMember = '󰦨',
-
         Keyword = '󰻾',
         Constant = '󰏿',
-
         Snippet = '󱄽',
         Color = '󰏘',
         File = '󰈔',
@@ -86,6 +98,7 @@ return {
         }),
 
         sources = cmp.config.sources({
+          -- { name = "windsurf" }, -- 🔥 Windsurf AI
           { name = "nvim_lsp" },
           { name = "path" },
           { name = "luasnip" },
@@ -96,6 +109,7 @@ return {
           format = function(entry, vim_item)
             vim_item.kind = (kind_icons[vim_item.kind] or "") .. " " .. vim_item.kind
             vim_item.menu = ({
+              -- windsurf = "[AI]",
               nvim_lsp = "[LSP]",
               buffer = "[Buf]",
               path = "[Path]",
