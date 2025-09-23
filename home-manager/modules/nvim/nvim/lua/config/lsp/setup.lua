@@ -1,6 +1,5 @@
 -- LSP configuration for NixOS without Mason
 local ufo_utils = require("utils._ufo")
-local lspconfig = vim.lsp.config
 local ufo_config_handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
   local suffix = (' 󰁂 %d '):format(endLnum - lnum)
@@ -31,6 +30,8 @@ local ufo_config_handler = function(virtText, lnum, endLnum, width, truncate)
 
   return newVirtText
 end
+
+local lspconfig = require("lspconfig")
 
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -72,7 +73,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-lspconfig["tailwindcss"] = {
+lspconfig.tailwindcss.setup({
   capabilities = capabilities,
   filetypes = require("config.lsp.servers.tailwindcss").filetypes,
   handlers = handlers,
@@ -82,17 +83,17 @@ lspconfig["tailwindcss"] = {
   flags = {
     debounce_text_changes = 1000,
   },
-}
+})
 
 -- CSS LSP
-vim.lsp.config["cssls"] = {
+lspconfig.cssls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = require("config.lsp.servers.cssls").on_attach,
   settings = require("config.lsp.servers.cssls").settings,
-}
+})
 
-vim.lsp.config["qmlls"] = {
+require("lspconfig").qmlls.setup {
   cmd = { "qmlls", "-E" },
   capabilities = capabilities,
   handlers = handlers,
@@ -100,7 +101,7 @@ vim.lsp.config["qmlls"] = {
 }
 
 -- ESLint LSP
-vim.lsp.config["eslint"] = {
+lspconfig.eslint.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = require("config.lsp.servers.eslint").on_attach,
@@ -110,76 +111,78 @@ vim.lsp.config["eslint"] = {
     debounce_text_changes = 1000,
     exit_timeout = 1500,
   },
-}
+})
 
 -- JSON LSP
-vim.lsp.config["jsonls"] = {
+lspconfig.jsonls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
   settings = require("config.lsp.servers.jsonls").settings,
-}
+})
 
 -- Lua LSP
-vim.lsp.config["lua_ls"] = {
+lspconfig.lua_ls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
   settings = require("config.lsp.servers.lua_ls").settings,
-}
+})
 
 -- Vue LSP
-vim.lsp.config["vuels"] = {
+lspconfig.vuels.setup({
   filetypes = require("config.lsp.servers.vuels").filetypes,
   handlers = handlers,
   init_options = require("config.lsp.servers.vuels").init_options,
   on_attach = require("config.lsp.servers.vuels").on_attach,
   settings = require("config.lsp.servers.vuels").settings,
-}
+})
 
 -- Bash LSP
-vim.lsp.config["bashls"] = {
+lspconfig.bashls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-}
+})
 
-vim.lsp.config["glslls"] = {
+lspconfig.glslls.setup {
   cmd = { "glslls" },                             -- путь к серверу, если установлен глобально через npm
   filetypes = { "glsl", "vert", "frag", "geom" }, -- типы файлов GLSL
+  root_dir = require('lspconfig.util').root_pattern(".git", vim.fn.getcwd())
 }
 
 -- HTML LSP
-vim.lsp.config["html"] = {
+lspconfig.html.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-}
+})
 
 -- GraphQL LSP
-vim.lsp.config["graphql"] = {
+lspconfig.graphql.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-}
+})
 
 -- Prisma LSP
-vim.lsp.config["prismals"] = {
+lspconfig.prismals.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-}
+})
 
-vim.lsp.config["clangd"] = {
+lspconfig.clangd.setup {
   cmd = { "clangd", "--background-index" }, -- Можно добавить опции, если нужно
   filetypes = { "c", "cpp", "objc", "objcpp" },
+  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 }
 
 -- UFO setup for code folding
-require("ufo").setup {
+require("ufo").setup({
   fold_virt_text_handler = ufo_config_handler,
   close_fold_kinds_for_ft = { default = { "imports" } },
-}
+})
