@@ -21,7 +21,7 @@
       nodejs_20
       gcc
       pnpm
-      (import codeforces-extractor { pkgs = pkgs; })
+      (import ./codeforces-extractor.nix { pkgs = pkgs; })
     ];
 
     plugins = with pkgs.vimPlugins; [
