@@ -173,7 +173,7 @@ lspconfig.prismals.setup({
 })
 
 lspconfig.clangd.setup {
-  cmd = { "clangd", "--background-index" }, -- Можно добавить опции, если нужно
+  cmd = { "clangd", "--background-index", "--clang-tidy" }, -- Можно добавить опции, если нужно
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
   capabilities = capabilities,

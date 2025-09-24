@@ -1,41 +1,31 @@
 { pkgs ? import <nixpkgs> {} }:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.rustPlatform.buildRustPackage rec {
   pname = "codeforces-extractor";
-  version = "unstable";
+  version = "0.1.1";
 
-  # Источник — Git репозиторий
+  doCheck = false;
+
+  # Указываем зависимости системы
+  buildInputs = with pkgs; [ openssl ];
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+
+  # Исходники из GitHub
   src = pkgs.fetchFromGitHub {
-    owner = "yunusey";
-    repo = "codeforces-extractor";
-    rev = "master";  # или конкретный коммит
-    sha256 = "0000000000000000000000000000000000000000000000000000"; # временно
+    owner = "Sinedka";
+    repo = pname;
+    rev = "main"; # Можно заменить на конкретный коммит
+    hash = "sha256-/5WKKtDdy/n+bq4RC7hOg+2ioCjiYQiYA3Gv6jTgmDU="; # замените после первой сборки
   };
 
-  buildInputs = [
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.pkg-config
-    pkgs.openssl
-  ];
-
-  cargoSha256 = null; # для cargo deps, можно пересчитать позже
-
-  buildPhase = ''
-    export CARGO_HOME=$PWD/cargo-home
-    mkdir -p $CARGO_HOME
-    cargo install --path . --root $out
-  '';
-
-  installPhase = ''
-    # Всё уже установлено через --root, обычно пусто
-    echo "Installed to $out"
-  '';
+  # Cargo dependencies hash
+  cargoHash = "sha256-iy2E1HHsZfsyGbd8P9qITRzdPqSORfX/xeG4tXy0OlM="; # замените после первой сборки
 
   meta = with pkgs.lib; {
     description = "Tool to extract Codeforces problems";
-    license = licenses.mit;
     homepage = "https://github.com/yunusey/codeforces-extractor";
+    license = licenses.mit;
     maintainers = with maintainers; [ ];
   };
 }
+

@@ -6,7 +6,7 @@ local spec = {
 spec.config = function()
     require('codeforces-nvim').setup {
         use_term_toggle = true,
-        cf_path = "/path/to/desired/codeforces/folder",
+        cf_path = "/home/sinedka/cf",
         timeout = 15000,
         compiler = {
             cpp = { "g++", "@.cpp", "-o", "@" },
@@ -16,18 +16,18 @@ spec.config = function()
             cpp = { "@" },
             py = { "python3", "@.py" }
         },
-        notify = function(title, message, type)
-            local notify = require('notify')
-            if message == nil then
-                notify(title, type, {
-                    render = "minimal",
-                })
-            else
-                notify(message, type, {
-                    title = title,
-                })
-            end
-        end
+        -- notify = function(title, message, type)
+        --     local notify = require('notify')
+        --     if message == nil then
+        --         notify(title, type, {
+        --             render = "minimal",
+        --         })
+        --     else
+        --         notify(message, type, {
+        --             title = title,
+        --         })
+        --     end
+        -- end
     }
 end
 

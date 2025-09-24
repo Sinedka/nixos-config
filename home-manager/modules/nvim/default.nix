@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    clang-tools
+  ];
+
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
