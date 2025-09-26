@@ -15,10 +15,6 @@
     fastfetch
     papirus-icon-theme
     glib
-    libsForQt5.qt5ct
-    qt6ct
-    xdg-desktop-portal-hyprland
-    xdg-user-dirs
     jq
     bc
     swww
@@ -55,12 +51,11 @@
     vial
     mpv
     glslls
-    qt6.full
     calibre
     zoom-us
     os-prober
     xfce.thunar
-
+    code-cursor
 
     # fonts
     material-symbols
@@ -68,7 +63,6 @@
     nerd-fonts.fira-code
     rubik
     grim
-    
   ]) ++ ([
     (import ./modules/nvim/codeforces-extractor.nix { pkgs = pkgs; })
     aniparser

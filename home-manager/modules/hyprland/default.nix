@@ -5,7 +5,6 @@
   
   # deps
   home.packages = (with pkgs; [
-    xdg-desktop-portal-gtk
     hyprpicker
     hypridle
     wl-clipboard
@@ -15,7 +14,6 @@
     inotify-tools
     app2unit
     wireplumber
-    trash-cli
     foot
     fish
     fastfetch
