@@ -56,6 +56,7 @@
     os-prober
     xfce.thunar
     code-cursor
+    wpsoffice-cn
 
     # fonts
     material-symbols
