@@ -2,6 +2,7 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",            -- UI для удобства
+    "nvim-neotest/nvim-nio",  -- ✅ обязательная зависимость
     "theHamsta/nvim-dap-virtual-text", -- виртуальный текст с переменными
   },
 
@@ -18,17 +19,16 @@ return {
   config = function()
     local dap = require("dap")
 
-    -- Настройка для C++ (через lldb)
-    dap.adapters.lldb = {
+    dap.adapters.gdb = {
       type = "executable",
-      command = "/usr/bin/lldb-vscode", -- проверь путь к lldb-vscode
-      name = "lldb",
+      command = "gdb",
+      args = { "-i=dap" }
     }
 
     dap.configurations.cpp = {
       {
         name = "Запустить программу",
-        type = "lldb",
+        type = "gdb",
         request = "launch",
         program = function()
           return vim.fn.input("Путь к исполняемому файлу: ", vim.fn.getcwd() .. "/", "file")
@@ -39,12 +39,10 @@ return {
       },
     }
 
-    -- Чтобы конфиг работал и для C и Rust
     dap.configurations.c = dap.configurations.cpp
-    dap.configurations.rust = dap.configurations.cpp
 
     -- DAP UI
-    local dapui = require("dap-ui")
+    local dapui = require("dapui")
     dapui.setup()
 
     -- Автооткрытие/закрытие UI
@@ -60,14 +58,5 @@ return {
 
     -- Virtual text
     require("nvim-dap-virtual-text").setup()
-
-    -- Горячие клавиши
-    vim.keymap.set("n", "<F5>", function() dap.continue() end, { desc = "DAP continue" })
-    vim.keymap.set("n", "<F10>", function() dap.step_over() end, { desc = "DAP step over" })
-    vim.keymap.set("n", "<F11>", function() dap.step_into() end, { desc = "DAP step into" })
-    vim.keymap.set("n", "<F12>", function() dap.step_out() end, { desc = "DAP step out" })
-    -- vim.keymap.set("n", "<leader>cb", function() dap.toggle_breakpoint() end, { desc = "DAP toggle breakpoint" })
-    vim.keymap.set("n", "<Leader>dr", function() dap.repl.open() end, { desc = "DAP REPL" })
-    vim.keymap.set("n", "<Leader>dl", function() dap.run_last() end, { desc = "DAP run last" })
   end,
 }

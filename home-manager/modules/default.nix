@@ -12,5 +12,6 @@
     ./kitty.nix
     # ./caelestia-dots.nix
     ./zen-browser.nix
+    ./godot.nix
   ];
 }

@@ -9,23 +9,15 @@
       enable = true;
       theme = "robbyrussell";
       plugins = [
-        "git"
+        # "git"
         "sudo"
         "systemd"
         "history"
-        "colored-man-pages"
-        "command-not-found"
-        "dirhistory"
+        # "command-not-found"
         "fzf"
       ];
       extraConfig = ''
-
         HIST_STAMPS="yyyy-mm-dd"
-
-
-        ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗"
-        ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✓"
-
 
         DISABLE_AUTO_UPDATE="true"
         DISABLE_UPDATE_PROMPT="true"
@@ -39,7 +31,7 @@
 
 
     history = {
-      size = 10000;
+      size = 1000;
       path = "${config.xdg.dataHome}/zsh/history";
       ignoreDups = true;
       share = true;
@@ -48,7 +40,6 @@
 
 
     shellAliases = {
-
       ll = "eza -la --icons";
       la = "eza -la --icons";
       l = "eza -l --icons";
@@ -98,7 +89,6 @@
 
 
     initContent = ''
-
       mkcd() {
         mkdir -p "$1" && cd "$1"
       }
@@ -130,10 +120,6 @@
         local dir
         dir=$(find . -type d -not -path '*/.*' 2>/dev/null | fzf) && cd "$dir"
       }
-
-      if command -v zoxide &> /dev/null; then
-        eval "$(zoxide init zsh)"
-      fi
     '';
   };
 
@@ -146,7 +132,7 @@
     fzf
     tree
     btop
-    zoxide
+    fastfetch
 
     git
     gh

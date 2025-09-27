@@ -3,39 +3,17 @@
   fonts.fontconfig.enable = true;
 
   home.packages = (with pkgs; [
-    htop
-    python3
     unzip
-    nodejs
     wl-clipboard
-    lua-language-server
     wget
-    cmatrix
     git
-    fastfetch
-    papirus-icon-theme
-    glib
-    jq
-    bc
-    swww
-    upower
-    brightnessctl 
-    cava
-    playerctl
+    # upower
+    # brightnessctl 
+    # playerctl
     kitty
-    firefox
-    gcc
     telegram-desktop
-    ntfs3g
-    nil
-    wl-clipboard
-    nix-prefetch
-    openssl
-    yad
     prismlauncher
     pavucontrol
-    nftables
-    hyprshot
     brave
     nautilus
     hyprpicker
