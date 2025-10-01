@@ -113,7 +113,7 @@
       "showKbLayout": true,
       "showMicrophone": false,
       "showNetwork": true,
-      "showLockStatus": true
+      "showLockStatus": false
     },
     "tray": {
       "background": false,
@@ -128,7 +128,7 @@
       "occupiedBg": false,
       "occupiedLabel": "󰮯",
       "perMonitorWorkspaces": true,
-      "showWindows": true,
+      "showWindows": false,
       "shown": 5
     }
   },
@@ -197,7 +197,7 @@
           "autocomplete",
           "transparency"
         ],
-        "enabled": false,
+        "enabled": true,
         "dangerous": false
       },
       {
@@ -220,7 +220,7 @@
           "setMode",
           "light"
         ],
-        "enabled": true,
+        "enabled": false,
         "dangerous": false
       },
       {
@@ -231,7 +231,7 @@
           "setMode",
           "dark"
         ],
-        "enabled": true,
+        "enabled": false,
         "dangerous": false
       },
       {
@@ -254,7 +254,7 @@
           "reboot"
         ],
         "enabled": true,
-        "dangerous": true
+        "dangerous": false
       },
       {
         "name": "Logout",
@@ -266,7 +266,7 @@
           ""
         ],
         "enabled": true,
-        "dangerous": true
+        "dangerous": false
       },
       {
         "name": "Lock",
@@ -298,11 +298,11 @@
     "maxWallpapers": 9,
     "specialPrefix": "@",
     "useFuzzy": {
-      "apps": false,
-      "actions": false,
-      "schemes": false,
-      "variants": false,
-      "wallpapers": false
+      "apps": true,
+      "actions": true,
+      "schemes": true,
+      "variants": true,
+      "wallpapers": true
     },
     "showOnHover": false,
     "hiddenApps": ["fish", "Foot"]

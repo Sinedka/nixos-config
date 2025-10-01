@@ -43,7 +43,6 @@
     rubik
     grim
   ]) ++ ([
-    (import ./modules/nvim/codeforces-extractor.nix { pkgs = pkgs; })
     aniparser
     (pkgs.callPackage ./screen-rec.nix {})
     caelestia-cli

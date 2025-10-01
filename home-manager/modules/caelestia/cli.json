@@ -1,13 +1,13 @@
 {
   "theme": {
-    "enableTerm": true,
+    "enableTerm": false,
     "enableHypr": true,
-    "enableDiscord": true,
-    "enableSpicetify": true,
-    "enableFuzzel": true,
-    "enableBtop": true,
-    "enableGtk": true,
-    "enableQt": true
+    "enableDiscord": false,
+    "enableSpicetify": false,
+    "enableFuzzel": false,
+    "enableBtop": false,
+    "enableGtk": false,
+    "enableQt": false
   },
   "toggles": {
     "communication": {
