@@ -29,7 +29,7 @@
       gnumake
       lazygit
       clang-tools
-      nodejs_20
+      nodejs_24
       gcc
       pnpm
     ];
