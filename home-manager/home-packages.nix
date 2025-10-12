@@ -7,9 +7,6 @@
     wl-clipboard
     wget
     git
-    # upower
-    # brightnessctl 
-    # playerctl
     kitty
     telegram-desktop
     prismlauncher
@@ -35,6 +32,9 @@
     xfce.thunar
     code-cursor
     wpsoffice-cn
+    mindustry-wayland
+    haguichi
+    logmein-hamachi
 
     # fonts
     material-symbols
