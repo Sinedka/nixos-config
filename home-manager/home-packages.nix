@@ -32,9 +32,9 @@
     xfce.thunar
     code-cursor
     wpsoffice-cn
-    mindustry-wayland
-    haguichi
-    logmein-hamachi
+    hydralauncher
+    qbittorrent
+    cmake
 
     # fonts
     material-symbols
@@ -42,9 +42,9 @@
     nerd-fonts.fira-code
     rubik
     grim
+    mupen64plus
   ]) ++ ([
     aniparser
-    (pkgs.callPackage ./screen-rec.nix {})
     caelestia-cli
   ]);
 

@@ -19,18 +19,10 @@
     ./timezone.nix
     ./upower.nix
     ./user.nix
+    ./systemd.nix
   ];
 nixpkgs.config.allowUnfree = true;
     programs.steam = {
     enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-     via
-  ];
-
-  services.udev.packages = [ pkgs.via ];
-
-  hardware.keyboard.qmk.enable = true;
-  services.logmein-hamachi.enable = true;
 }

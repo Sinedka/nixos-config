@@ -12,11 +12,11 @@
         "sans": "Rubik"
       },
       "size": {
-        "scale": 1
+        "scale": 0.9
       }
     },
     "padding": {
-      "scale": 1
+      "scale": 1.1
     },
     "rounding": {
       "scale": 1
@@ -134,7 +134,7 @@
   },
   "border": {
     "rounding": 25,
-    "thickness": 10
+    "thickness": 5
   },
   "dashboard": {
     "enabled": true,

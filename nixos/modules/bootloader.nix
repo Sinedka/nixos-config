@@ -1,5 +1,8 @@
 {pkgs, ...}:
 {
+  boot.kernelParams = [
+    "mem_sleep_default=deep"
+  ];
   boot.loader = {
     grub = {
       enable = true;
