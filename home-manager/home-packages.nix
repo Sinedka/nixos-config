@@ -35,13 +35,15 @@
     hydralauncher
     qbittorrent
     cmake
+    azahar
+    appimage-run
 
     # fonts
-    material-symbols
-    nerd-fonts.jetbrains-mono
+    # material-symbols
+    # nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
-    rubik
-    grim
+    # rubik
+    # grim
     mupen64plus
   ]) ++ ([
     aniparser
