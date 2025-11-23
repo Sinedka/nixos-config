@@ -1,9 +1,6 @@
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
--- Fix moving forward in jumplist via <C-i>
-keymap("n", "<C-I>", "<C-I>", silent)
-
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv", silent)
 keymap("x", "J", ":move '>+1<CR>gv-gv", silent)
@@ -27,11 +24,6 @@ keymap({ "n", "v" }, "X", '"_X', silent)
 -- Don't yank on visual paste
 keymap("v", "p", '"_dP', silent)
 
--- Avoid issues because of remapping <c-a> and <c-x> below
-vim.cmd([[
-  nnoremap <Plug>SpeedDatingFallbackUp <c-a>
-  nnoremap <Plug>SpeedDatingFallbackDown <c-x>
-]])
 
 -- Quickfix
 keymap("n", "<Leader>,", ":cp<CR>", silent)
@@ -70,8 +62,6 @@ keymap("v", "<leader>cf", function()
   })
 end, silent)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
@@ -80,7 +70,3 @@ keymap("n", "K", function()
     vim.lsp.buf.hover()
   end
 end)
-
--- Adjust font size
-keymap("n", "<M-=>", function() require('utils').adjust_font_size(1) end, silent)
-keymap("n", "<M-->", function() require('utils').adjust_font_size(-1) end, silent)

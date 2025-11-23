@@ -20,7 +20,6 @@
     ./upower.nix
     ./user.nix
     ./systemd.nix
-    ./xray.nix
   ];
 nixpkgs.config.allowUnfree = true;
     programs.steam = {
