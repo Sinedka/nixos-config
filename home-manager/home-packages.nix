@@ -17,7 +17,7 @@
     wf-recorder
     slurp
     quickemu
-    spotify
+    # spotify
     quickgui
     qmk
     qmk-udev-rules # the only relevant

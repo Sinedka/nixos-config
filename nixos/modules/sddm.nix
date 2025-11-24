@@ -15,12 +15,12 @@ in {
     package = pkgs.kdePackages.sddm; # qt6 sddm version
     extraPackages = with pkgs; [ custom-sddm-astronaut ];
 
-    theme = "sddm-astronaut-theme";
-    settings = {
-      Theme = {
-        Current = "sddm-astronaut-theme";
-      };
-    };
+    # theme = "sddm-astronaut-theme";
+    # settings = {
+    #   Theme = {
+    #     Current = "sddm-astronaut-theme";
+    #   };
+    # };
   };
 
   environment.systemPackages = with pkgs; [
