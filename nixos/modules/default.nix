@@ -21,6 +21,7 @@
     ./user.nix
     ./systemd.nix
     ./graphics.nix
+    ./thunar.nix
   ];
 nixpkgs.config.allowUnfree = true;
     programs.steam = {

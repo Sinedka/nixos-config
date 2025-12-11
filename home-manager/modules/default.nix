@@ -10,7 +10,6 @@
     ./cursor.nix
     ./gtk.nix
     ./kitty.nix
-    ./thunar.nix
     ./zen-browser.nix
   ];
 }
