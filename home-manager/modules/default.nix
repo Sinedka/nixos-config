@@ -10,8 +10,7 @@
     ./cursor.nix
     ./gtk.nix
     ./kitty.nix
-    # ./caelestia-dots.nix
+    ./thunar.nix
     ./zen-browser.nix
-    ./godot.nix
   ];
 }

@@ -1,28 +1,21 @@
 {pkgs, ...}:
 {
-  boot.kernelParams = [
-    "mem_sleep_default=deep"
-  ];
   boot.loader = {
     grub = {
       enable = true;
       device = "nodev";
       efiSupport = true;
       extraEntries = ''
-        menuentry "Windows Boot Manager" {
-          insmod part_gpt
-          insmod fat
-          set root='hd0,gpt1'
-          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-        }
+      menuentry "Windows" {
+        insmod part_gpt
+        insmod fat
+        insmod chain
 
-        menuentry "Arch Linux" {
-          insmod part_gpt
-          insmod ext2
-          set root='hd0,gpt6'
-          linux /boot/vmlinuz-linux root=/dev/nvme0n1p6 rw
-          initrd /boot/initramfs-linux.img
-        }
+        # EFI раздел
+        search --no-floppy --fs-uuid --set=root 1BE1-9BB9
+
+        chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+      }
       '';
     };
     efi = {

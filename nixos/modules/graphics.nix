@@ -9,6 +9,8 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  # boot.blacklistedKernelModules = [ "amdgpu" ];
+
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -39,11 +41,11 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    # prime = {
-    #   # Make sure to use the correct Bus ID values for your system!
-    #   intelBusId = "PCI:0:2:0";
-    #   # nvidiaBusId = "PCI:14:0:0";
-    #   amdgpuBusId = "PCI:54:0:0"; For AMD GPU
-    # };
+    prime = {
+      # Make sure to use the correct Bus ID values for your system!
+      intelBusId = "PCI:4:0:0";
+      # nvidiaBusId = "PCI:14:0:0";
+      amdgpuBusId = "PCI:4:0:0";
+    };
   };
 }

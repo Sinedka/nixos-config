@@ -1,11 +1,11 @@
 {
   "theme": {
-    "enableTerm": false,
+    "enableTerm": true,
     "enableHypr": true,
     "enableDiscord": false,
     "enableSpicetify": false,
     "enableFuzzel": false,
-    "enableBtop": false,
+    "enableBtop": true,
     "enableGtk": false,
     "enableQt": false
   },

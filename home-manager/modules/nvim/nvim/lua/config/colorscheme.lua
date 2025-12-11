@@ -58,7 +58,8 @@ tokyonight.setup({
   style = "moon",
   light_style = "day",          -- The theme is used when the background is set to light
   transparent = is_transparent, -- Enable this to disable setting the background color
-  terminal_colors = true,       -- Configure the colors used when opening a `:terminal` in Neovim
+  terminal_colors = false,       -- Configure the colors used when opening a `:terminal` in Neovim
+  use_background = true,
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`

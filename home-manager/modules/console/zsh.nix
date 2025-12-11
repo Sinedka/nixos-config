@@ -72,7 +72,6 @@
       hypr-reload = "hyprctl reload";
     };
 
-
     sessionVariables = {
       EDITOR = "nvim";
       BROWSER = "firefox";
@@ -92,6 +91,8 @@
       mkcd() {
         mkdir -p "$1" && cd "$1"
       }
+
+      cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
 
 
       extract() {

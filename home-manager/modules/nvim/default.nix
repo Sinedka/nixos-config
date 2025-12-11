@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, stable, ... }:
 
 {
   home.packages = with pkgs; [
-    clang-tools
+    stable.clang-tools
     rr
     gdb
    vscode-extensions.vadimcn.vscode-lldb 

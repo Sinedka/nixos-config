@@ -26,4 +26,6 @@ nixpkgs.config.allowUnfree = true;
     programs.steam = {
     enable = true;
   };
+    programs.gpu-screen-recorder.enable = true;
+
 }

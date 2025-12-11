@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -20,16 +20,17 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+      stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
       aniparser = inputs.aniparser.packages.${system}.default;
       caelestia-cli = inputs.caelestia-cli.packages.${system}.with-shell;
-      zen-browser = inputs.zen-browser.packages."${system}".specific;
+      zen-browser = inputs.zen-browser.packages."${system}".twilight;
       user = "sinedka";
       hostname = "nixosuser";
       stateVersion = "25.05";
@@ -37,7 +38,7 @@
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs stateVersion hostname user unstable; };
+        specialArgs = { inherit inputs stateVersion hostname user stable; };
 
         modules = [
           ./hosts/${hostname}/configuration.nix
@@ -45,10 +46,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${user}.imports = [ ./home-manager/home.nix inputs.zen-browser.homeModules.beta ];
+            home-manager.users.${user}.imports = [ ./home-manager/home.nix inputs.zen-browser.homeModules.twilight ];
 
             # home-manager.users.${user} = ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs stateVersion user unstable aniparser caelestia-cli; };
+            home-manager.extraSpecialArgs = { inherit inputs stateVersion user stable aniparser caelestia-cli; };
           }
         ];
       };

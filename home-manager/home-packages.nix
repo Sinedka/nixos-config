@@ -9,42 +9,21 @@
     git
     kitty
     telegram-desktop
-    prismlauncher
     pavucontrol
-    brave
-    nautilus
     hyprpicker
-    wf-recorder
-    slurp
-    quickemu
-    # spotify
+    # slurp
+    spotify
     quickgui
-    qmk
-    qmk-udev-rules # the only relevant
-    qmk_hid
-    via
-    vial
     mpv
-    glslls
     calibre
     zoom-us
-    os-prober
     xfce.thunar
-    code-cursor
-    wpsoffice-cn
-    hydralauncher
     qbittorrent
     cmake
-    azahar
-    appimage-run
-
-    # fonts
-    # material-symbols
-    # nerd-fonts.jetbrains-mono
+    nix-tree
     nerd-fonts.fira-code
-    # rubik
-    # grim
-    mupen64plus
+    clang
+    gpu-screen-recorder
   ]) ++ ([
     aniparser
     caelestia-cli
