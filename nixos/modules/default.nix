@@ -22,6 +22,7 @@
     ./systemd.nix
     ./graphics.nix
     ./thunar.nix
+    ./polkit.nix
   ];
 nixpkgs.config.allowUnfree = true;
     programs.steam = {
