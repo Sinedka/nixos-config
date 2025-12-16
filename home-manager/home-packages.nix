@@ -24,6 +24,7 @@
     nerd-fonts.fira-code
     clang
     gpu-screen-recorder
+    python3
   ]) ++ ([
     aniparser
     caelestia-cli
