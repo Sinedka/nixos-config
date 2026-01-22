@@ -1,9 +1,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Sinedka";
-    userEmail = "dennnn8888@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name ="Sinedka";
+        email = "dennnn8888@gmail.com";
+      };
       init.defaultBranch = "main";
       pull.rebase = false;
       core.pager = "delta";

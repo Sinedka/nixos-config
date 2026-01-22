@@ -9,6 +9,7 @@
         "wheel"
         "input"
         "networkmanager"
+        "kvm"
       ];
     };
   };

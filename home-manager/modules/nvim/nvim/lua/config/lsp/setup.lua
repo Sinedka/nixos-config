@@ -1,8 +1,13 @@
 -- LSP configuration for NixOS without Mason
+
+-- =========================
+-- UFO (folding)
+-- =========================
 local ufo_utils = require("utils._ufo")
+
 local ufo_config_handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
-  local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+  local suffix = (" 󰁂 %d "):format(endLnum - lnum)
   local sufWidth = vim.fn.strdisplaywidth(suffix)
   local targetWidth = width - sufWidth
   local curWidth = 0
@@ -10,27 +15,29 @@ local ufo_config_handler = function(virtText, lnum, endLnum, width, truncate)
   for _, chunk in ipairs(virtText) do
     local chunkText = chunk[1]
     local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+
     if targetWidth > curWidth + chunkWidth then
       table.insert(newVirtText, chunk)
     else
       chunkText = truncate(chunkText, targetWidth - curWidth)
-      local hlGroup = chunk[2]
-      table.insert(newVirtText, { chunkText, hlGroup })
-      chunkWidth = vim.fn.strdisplaywidth(chunkText)
-      -- str width returned from truncate() may less than 2nd argument, need padding
-      if curWidth + chunkWidth < targetWidth then
-        suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+      table.insert(newVirtText, { chunkText, chunk[2] })
+
+      if curWidth + vim.fn.strdisplaywidth(chunkText) < targetWidth then
+        suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
       end
       break
     end
+
     curWidth = curWidth + chunkWidth
   end
 
-  table.insert(newVirtText, { suffix, 'MoreMsg' })
-
+  table.insert(newVirtText, { suffix, "MoreMsg" })
   return newVirtText
 end
 
+-- =========================
+-- LSP base
+-- =========================
 local lspconfig = require("lspconfig")
 
 local handlers = {
@@ -38,43 +45,51 @@ local handlers = {
     silent = true,
     border = "rounded",
   }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help,
+    { border = "rounded" }
+  ),
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local function on_attach(_, bufnr)
-  vim.lsp.inlay_hint.enable(true, { bufnr })
+  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 end
 
--- Global override for floating preview border
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+-- =========================
+-- Global floating border
+-- =========================
+local orig_open = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
   opts.border = opts.border or "rounded"
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+  return orig_open(contents, syntax, opts, ...)
 end
 
--- TypeScript/JavaScript LSP (typescript-tools)
+-- =========================
+-- TypeScript / JavaScript
+-- =========================
 require("typescript-tools").setup({
-  capabilities = capabilities or vim.lsp.protocol.make_client_capabilities(),
+  capabilities = capabilities,
   handlers = require("config.lsp.servers.tsserver").handlers,
   on_attach = require("config.lsp.servers.tsserver").on_attach,
   settings = require("config.lsp.servers.tsserver").settings,
 })
 
--- Tailwind CSS LSP
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.colorProvider = { dynamicRegistration = false }
-capabilities.textDocument.foldingRange = {
+-- =========================
+-- Tailwind CSS
+-- =========================
+local tailwind_capabilities = vim.deepcopy(capabilities)
+tailwind_capabilities.textDocument.completion.completionItem.snippetSupport = true
+tailwind_capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+tailwind_capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
 
 lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
+  capabilities = tailwind_capabilities,
   filetypes = require("config.lsp.servers.tailwindcss").filetypes,
   handlers = handlers,
   init_options = require("config.lsp.servers.tailwindcss").init_options,
@@ -85,7 +100,9 @@ lspconfig.tailwindcss.setup({
   },
 })
 
--- CSS LSP
+-- =========================
+-- CSS
+-- =========================
 lspconfig.cssls.setup({
   capabilities = capabilities,
   handlers = handlers,
@@ -93,14 +110,19 @@ lspconfig.cssls.setup({
   settings = require("config.lsp.servers.cssls").settings,
 })
 
-require("lspconfig").qmlls.setup {
+-- =========================
+-- QML
+-- =========================
+lspconfig.qmlls.setup({
   cmd = { "qmlls", "-E" },
   capabilities = capabilities,
   handlers = handlers,
-  on_attach = on_attach
-}
+  on_attach = on_attach,
+})
 
--- ESLint LSP
+-- =========================
+-- ESLint
+-- =========================
 lspconfig.eslint.setup({
   capabilities = capabilities,
   handlers = handlers,
@@ -113,7 +135,9 @@ lspconfig.eslint.setup({
   },
 })
 
--- JSON LSP
+-- =========================
+-- JSON
+-- =========================
 lspconfig.jsonls.setup({
   capabilities = capabilities,
   handlers = handlers,
@@ -121,7 +145,9 @@ lspconfig.jsonls.setup({
   settings = require("config.lsp.servers.jsonls").settings,
 })
 
--- Lua LSP
+-- =========================
+-- Lua
+-- =========================
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   handlers = handlers,
@@ -129,7 +155,9 @@ lspconfig.lua_ls.setup({
   settings = require("config.lsp.servers.lua_ls").settings,
 })
 
--- Vue LSP
+-- =========================
+-- Vue
+-- =========================
 lspconfig.vuels.setup({
   filetypes = require("config.lsp.servers.vuels").filetypes,
   handlers = handlers,
@@ -138,51 +166,81 @@ lspconfig.vuels.setup({
   settings = require("config.lsp.servers.vuels").settings,
 })
 
--- Bash LSP
+-- =========================
+-- Bash
+-- =========================
 lspconfig.bashls.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
 
-lspconfig.glslls.setup {
-  cmd = { "glslls" },                             -- путь к серверу, если установлен глобально через npm
-  filetypes = { "glsl", "vert", "frag", "geom" }, -- типы файлов GLSL
-  root_dir = require('lspconfig.util').root_pattern(".git", vim.fn.getcwd())
-}
+-- =========================
+-- GLSL
+-- =========================
+lspconfig.glslls.setup({
+  cmd = { "glslls" },
+  filetypes = { "glsl", "vert", "frag", "geom" },
+  root_dir = require("lspconfig.util").root_pattern(".git"),
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+})
 
--- HTML LSP
+-- =========================
+-- HTML
+-- =========================
 lspconfig.html.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
 
--- GraphQL LSP
+-- =========================
+-- GraphQL
+-- =========================
 lspconfig.graphql.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
 
--- Prisma LSP
+-- =========================
+-- Prisma
+-- =========================
 lspconfig.prismals.setup({
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
 
-lspconfig.clangd.setup {
-  cmd = { "clangd", "--background-index", "--clang-tidy" }, -- Можно добавить опции, если нужно
+-- =========================
+-- C / C++
+-- =========================
+lspconfig.clangd.setup({
+  cmd = { "clangd", "--background-index", "--clang-tidy" },
   filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
-}
+})
 
--- UFO setup for code folding
+-- =========================
+-- Nix
+-- =========================
+lspconfig.nil_ls.setup({
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+})
+
+-- =========================
+-- UFO setup
+-- =========================
 require("ufo").setup({
   fold_virt_text_handler = ufo_config_handler,
-  close_fold_kinds_for_ft = { default = { "imports" } },
+  close_fold_kinds_for_ft = {
+    default = { "imports" },
+  },
 })
+

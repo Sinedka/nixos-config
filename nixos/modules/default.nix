@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./audio.nix
@@ -24,10 +24,15 @@
     ./thunar.nix
     ./polkit.nix
   ];
-nixpkgs.config.allowUnfree = true;
-    programs.steam = {
+  
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.android_sdk.accept_license = true;
+  programs.steam = {
     enable = true;
   };
-    programs.gpu-screen-recorder.enable = true;
+  programs.gpu-screen-recorder.enable = true;
+  programs.nix-ld.enable = true;
+
+  services.flatpak.enable = true;
 
 }

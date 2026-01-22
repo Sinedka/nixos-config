@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    osu = {
+      url = "github:notgne2/osu-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -37,7 +42,7 @@
     in
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = system;
         specialArgs = { inherit inputs stateVersion hostname user stable; };
 
         modules = [

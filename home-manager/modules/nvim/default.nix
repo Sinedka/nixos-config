@@ -1,11 +1,18 @@
-{ config, lib, pkgs, stable, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  stable,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
     stable.clang-tools
     rr
     gdb
-   vscode-extensions.vadimcn.vscode-lldb 
+    nil
+    vscode-extensions.vadimcn.vscode-lldb
   ];
 
   home.sessionVariables = {
@@ -16,13 +23,13 @@
     enable = true;
     extraPackages = with pkgs; [
       # LSP серверы
-      bash-language-server           # bashls
-      vscode-langservers-extracted   # cssls, html, jsonls
-      eslint_d                       # eslint
-      graphql-language-service-cli   # graphql
-      lua-language-server            # lua_ls
-      prisma-engines                 # prismals
-      tailwindcss-language-server    # tailwindcss
+      bash-language-server # bashls
+      vscode-langservers-extracted # cssls, html, jsonls
+      eslint_d # eslint
+      graphql-language-service-cli # graphql
+      lua-language-server # lua_ls
+      prisma-engines # prismals
+      tailwindcss-language-server # tailwindcss
       # typescript-language-server уже включен в typescript-tool
 
       # additional plugins
@@ -35,6 +42,7 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
+      blink-cmp
       lazy-nvim
     ];
   };
