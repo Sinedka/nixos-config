@@ -33,6 +33,7 @@
       osu-lazer-bin
       nodejs
       code-cursor
+      android-studio
     ])
     ++ ([
       aniparser

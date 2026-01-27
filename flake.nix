@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     aniparser.url = "github:sinedka/aniparser-flake";
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -21,11 +22,6 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
-    };
-
-    osu = {
-      url = "github:notgne2/osu-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
