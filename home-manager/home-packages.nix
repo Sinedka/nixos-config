@@ -34,6 +34,8 @@
       nodejs
       code-cursor
       android-studio
+      vscode
+      codex
     ])
     ++ ([
       aniparser

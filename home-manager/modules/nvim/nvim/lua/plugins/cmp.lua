@@ -43,7 +43,7 @@ return {
             auto_show = true,
             border = "rounded",
           },
-          ghost_text = { enabled = true },
+          ghost_text = { enabled = false },
         },
 
         keymap = {
@@ -58,14 +58,37 @@ return {
         },
 
         sources = {
-          default = {
-            "lsp",
-            "path",
-            "snippets",
-            "buffer",
+          default = { "lsp", "path", "snippets", "buffer" },
+
+          providers = {
+            lsp = {
+              name = "LSP",
+              module = "blink.cmp.sources.lsp",
+              --- фильтр элементов
+              transform_items = function(_, items)
+                local CompletionItemKind = vim.lsp.protocol.CompletionItemKind
+                return vim.tbl_filter(function(item)
+                  return item.kind ~= CompletionItemKind.Snippet
+                end, items)
+              end,
+            },
+
+            path = {
+              name = "Path",
+              module = "blink.cmp.sources.path",
+            },
+
+            snippets = {
+              name = "Snippets",
+              module = "blink.cmp.sources.snippets",
+            },
+
+            buffer = {
+              name = "Buffer",
+              module = "blink.cmp.sources.buffer",
+            },
           },
         },
-
         appearance = {
           kind_icons = {
             Text = '󰉿',
