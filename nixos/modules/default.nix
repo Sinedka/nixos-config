@@ -35,6 +35,8 @@
   programs.steam = {
     enable = true;
   };
+  hardware.xone.enable = true;
+  hardware.xpadneo.enable = true;
   programs.gpu-screen-recorder.enable = true;
   programs.nix-ld = {
     enable = true;
@@ -62,8 +64,10 @@
         xorg.libxcb
         libxkbcommon
         alsa-lib
+        stdenv.cc.cc
       ]);
   };
+
 
   services.flatpak.enable = true;
 

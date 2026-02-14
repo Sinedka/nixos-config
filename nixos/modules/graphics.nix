@@ -9,7 +9,9 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  # boot.blacklistedKernelModules = [ "amdgpu" ];
+  hardware.opengl = {
+    enable = true;
+  };
 
   hardware.nvidia = {
 

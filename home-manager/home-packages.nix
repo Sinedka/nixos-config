@@ -27,15 +27,22 @@
       nerd-fonts.fira-code
       clang
       # gpu-screen-recorder
-      python3
-      wpsoffice-cn
-      chromium
+      # wpsoffice-cn
+      # chromium
       osu-lazer-bin
       nodejs
-      code-cursor
+      # code-cursor
       android-studio
       vscode
+      # azahar
       codex
+      modrinth-app
+      (pkgs.python3.withPackages (ps: with ps; [
+        tkinter
+        litemapy
+        scikit-learn
+      ]))
+
     ])
     ++ ([
       aniparser
