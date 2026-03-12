@@ -29,6 +29,17 @@
     ./thunar.nix
     ./polkit.nix
   ];
+  boot.kernelModules = [
+    "hid_nintendo"
+    "joydev"
+  ];
+
+  # иногда нужно явно
+  hardware.bluetooth.settings = {
+    General = {
+      Experimental = true;
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
@@ -65,9 +76,12 @@
         libxkbcommon
         alsa-lib
         stdenv.cc.cc
+        icu
+        libgdiplus
+        pcre
+
       ]);
   };
-
 
   services.flatpak.enable = true;
 

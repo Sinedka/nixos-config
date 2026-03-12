@@ -12,6 +12,7 @@
     rr
     gdb
     nil
+    pyright
     vscode-extensions.vadimcn.vscode-lldb
   ];
 

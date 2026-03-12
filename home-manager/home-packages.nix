@@ -42,7 +42,11 @@
         litemapy
         scikit-learn
       ]))
-
+      zenity
+      cemu
+      xarchiver
+      usbutils
+      evtest
     ])
     ++ ([
       aniparser

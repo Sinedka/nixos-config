@@ -244,3 +244,10 @@ require("ufo").setup({
   },
 })
 
+lspconfig.pyright.setup({
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+})
+
+
