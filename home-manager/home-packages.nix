@@ -47,6 +47,7 @@
       xarchiver
       usbutils
       evtest
+      thunderbird
     ])
     ++ ([
       aniparser

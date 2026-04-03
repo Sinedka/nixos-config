@@ -13,9 +13,15 @@
     aniparser.url = "github:sinedka/aniparser-flake";
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell/v1.5.1";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli/v1.0.5";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.caelestia-shell.follows = "caelestia-shell";
     };
 
     zen-browser = {
