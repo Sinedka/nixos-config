@@ -20,38 +20,29 @@
       hyprpicker
       spotify
       mpv
-      calibre
       zoom-us
       qbittorrent
       cmake
       nerd-fonts.fira-code
       clang
-      # gpu-screen-recorder
-      # wpsoffice-cn
-      # chromium
       osu-lazer-bin
       nodejs
-      # code-cursor
-      android-studio
       vscode
-      # azahar
       codex
-      modrinth-app
       (pkgs.python3.withPackages (ps: with ps; [
         tkinter
         litemapy
         scikit-learn
       ]))
       zenity
-      cemu
       xarchiver
-      usbutils
-      evtest
-      thunderbird
+      gparted
+      quickshell
+      rofi
     ])
     ++ ([
       aniparser
-      caelestia-cli
+      # caelestia-cli
     ]);
 
 }

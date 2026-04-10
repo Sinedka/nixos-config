@@ -31,6 +31,7 @@
       lua-language-server # lua_ls
       prisma-engines # prismals
       tailwindcss-language-server # tailwindcss
+      kdePackages.qtdeclarative
       # typescript-language-server уже включен в typescript-tool
 
       # additional plugins

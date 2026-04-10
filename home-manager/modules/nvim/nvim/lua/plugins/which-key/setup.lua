@@ -28,8 +28,8 @@ wk.setup {
     group = "+", -- symbol prepended to a group
   },
   win = {
-    border = "rounded", -- none, single, double, shadow, rounded
-    padding = { 2, 2, 2, 2 },                     -- extra window padding [top, right, bottom, left]
+    border = "rounded",       -- none, single, double, shadow, rounded
+    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
   },
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -64,16 +64,7 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>/",  group = "Ecovim" },
-  { "<leader>/s", group = "Session" },
-  { "<leader>//", "<cmd>Alpha<CR>", desc = "open dashboard" },
-  { "<leader>/i", "<cmd>Lazy<CR>",  desc = "manage plugins" },
-})
-
-wk.add({
-  { "<leader>a",  group = "Actions",                mode = { "n", "v" } },
-  { "<leader>an", "<cmd>set nonumber!<CR>",         desc = "line numbers" },
-  { "<leader>ar", "<cmd>set norelativenumber!<CR>", desc = "relative number" },
+  { "<leader>a", group = "Actions", mode = { "n", "v" } },
 })
 
 wk.add({
@@ -110,13 +101,6 @@ wk.add({
   { "<leader>gl",  group = "Log" },
   { "<leader>gm",  desc = 'blame line' },
   { "<leader>gp",  "<cmd>Octo pr list<CR>",       desc = 'Pull Requests List' },
-  { "<leader>gw",  group = "Worktree" },
-  { "<leader>gww", desc = 'worktrees' },
-  { "<leader>gwc", desc = 'create worktree' },
-})
-
-wk.add({
-  { "<leader>p", group = "Picker" },
 })
 
 wk.add({
