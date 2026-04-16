@@ -43,9 +43,6 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
-  programs.steam = {
-    enable = true;
-  };
   hardware.xone.enable = true;
   hardware.xpadneo.enable = true;
   programs.gpu-screen-recorder.enable = true;
@@ -82,6 +79,8 @@
 
       ]);
   };
+
+  programs.steam.enable = true;
 
   services.flatpak.enable = true;
 

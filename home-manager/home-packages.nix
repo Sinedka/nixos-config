@@ -39,10 +39,11 @@
       gparted
       quickshell
       rofi
+      quickgui
     ])
     ++ ([
       aniparser
-      # caelestia-cli
+      caelestia-cli
     ]);
 
 }

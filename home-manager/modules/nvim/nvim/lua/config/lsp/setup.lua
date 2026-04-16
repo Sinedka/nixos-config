@@ -114,7 +114,7 @@ lspconfig.cssls.setup({
 -- QML
 -- =========================
 lspconfig.qmlls.setup({
-  cmd = { "qmlls", "-E" },
+  cmd = { "qmlls", "-I", "." },
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
@@ -249,5 +249,3 @@ lspconfig.pyright.setup({
   handlers = handlers,
   on_attach = on_attach,
 })
-
-
