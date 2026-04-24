@@ -14,12 +14,12 @@
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell/v1.5.2";
+      url = "github:caelestia-dots/shell/v1.6.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     caelestia-cli = {
-      url = "github:caelestia-dots/cli/v1.0.5";
+      url = "github:caelestia-dots/cli/v1.0.7";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.caelestia-shell.follows = "caelestia-shell";
     };
@@ -40,7 +40,7 @@
       zen-browser = inputs.zen-browser.packages."${system}".twilight;
       user = "sinedka";
       hostname = "nixosuser";
-      stateVersion = "25.05";
+      stateVersion = "26.05";
     in
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {

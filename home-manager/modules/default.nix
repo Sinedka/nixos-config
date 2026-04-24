@@ -1,6 +1,7 @@
 {
   imports = [
     # ./caelestia
+    ./yazi.nix
     ./console
     ./git
     ./hyprland
@@ -10,7 +11,7 @@
     ./cursor.nix
     ./gtk.nix
     ./kitty.nix
-    ./zen-browser.nix
+    ./zen-browser
     ./obsidian.nix
   ];
 }

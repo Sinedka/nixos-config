@@ -40,6 +40,7 @@
       quickshell
       rofi
       quickgui
+      libreoffice
     ])
     ++ ([
       aniparser
