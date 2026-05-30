@@ -18,11 +18,13 @@
       "zen.urlbar.behavior" = "float";
       "browser.tabs.allow_transparent_browser" = true;
       "zen.widget.linux.transparency" = true;
+      "mousebutton.4th.enabled" = false;
+      "mousebutton.5th.enabled" = false;
     };
 
     search = {
       force = true;
-      default = "Google";
+      default = "google";
       engines =
         let
           nixSnowflakeIcon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";

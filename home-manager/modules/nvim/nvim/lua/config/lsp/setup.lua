@@ -38,7 +38,7 @@ end
 -- =========================
 -- LSP base
 -- =========================
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -88,7 +88,7 @@ tailwind_capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-lspconfig.tailwindcss.setup({
+lspconfig("tailwindcss", {
   capabilities = tailwind_capabilities,
   filetypes = require("config.lsp.servers.tailwindcss").filetypes,
   handlers = handlers,
@@ -100,30 +100,36 @@ lspconfig.tailwindcss.setup({
   },
 })
 
+vim.lsp.enable('tailwindcss')
+
 -- =========================
 -- CSS
 -- =========================
-lspconfig.cssls.setup({
+lspconfig("cssls", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = require("config.lsp.servers.cssls").on_attach,
   settings = require("config.lsp.servers.cssls").settings,
 })
 
+vim.lsp.enable('cssls')
+
 -- =========================
 -- QML
 -- =========================
-lspconfig.qmlls.setup({
+lspconfig("qmlls", {
   cmd = { "qmlls", "-I", "." },
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
 
+vim.lsp.enable('qmlls')
+
 -- =========================
 -- ESLint
 -- =========================
-lspconfig.eslint.setup({
+lspconfig("eslint", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = require("config.lsp.servers.eslint").on_attach,
@@ -135,30 +141,36 @@ lspconfig.eslint.setup({
   },
 })
 
+vim.lsp.enable('eslint')
+
 -- =========================
 -- JSON
 -- =========================
-lspconfig.jsonls.setup({
+lspconfig("jsonls", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
   settings = require("config.lsp.servers.jsonls").settings,
 })
 
+vim.lsp.enable('jsonls')
+
 -- =========================
 -- Lua
 -- =========================
-lspconfig.lua_ls.setup({
+lspconfig("lua_ls", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
   settings = require("config.lsp.servers.lua_ls").settings,
 })
 
+vim.lsp.enable('lua_ls')
+
 -- =========================
 -- Vue
 -- =========================
-lspconfig.vuels.setup({
+lspconfig("vuels", {
   filetypes = require("config.lsp.servers.vuels").filetypes,
   handlers = handlers,
   init_options = require("config.lsp.servers.vuels").init_options,
@@ -166,58 +178,69 @@ lspconfig.vuels.setup({
   settings = require("config.lsp.servers.vuels").settings,
 })
 
+vim.lsp.enable('vuels')
+
 -- =========================
 -- Bash
 -- =========================
-lspconfig.bashls.setup({
+lspconfig("bashls", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
+
+vim.lsp.enable('bashls')
 
 -- =========================
 -- GLSL
 -- =========================
-lspconfig.glslls.setup({
+lspconfig("glslls", {
   cmd = { "glslls" },
   filetypes = { "glsl", "vert", "frag", "geom" },
-  root_dir = require("lspconfig.util").root_pattern(".git"),
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
+
+vim.lsp.enable('glslls')
 
 -- =========================
 -- HTML
 -- =========================
-lspconfig.html.setup({
+lspconfig("html", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
+
+vim.lsp.enable('html')
 
 -- =========================
 -- GraphQL
 -- =========================
-lspconfig.graphql.setup({
+lspconfig("graphql", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
+
+vim.lsp.enable('graphql')
 
 -- =========================
 -- Prisma
 -- =========================
-lspconfig.prismals.setup({
+lspconfig("prismals", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
 
+vim.lsp.enable('prismals')
+
 -- =========================
 -- C / C++
 -- =========================
-lspconfig.clangd.setup({
+lspconfig("clangd", {
   cmd = { "clangd", "--background-index", "--clang-tidy" },
   filetypes = { "c", "cpp", "objc", "objcpp" },
   capabilities = capabilities,
@@ -225,14 +248,18 @@ lspconfig.clangd.setup({
   on_attach = on_attach,
 })
 
+vim.lsp.enable('clangd')
+
 -- =========================
 -- Nix
 -- =========================
-lspconfig.nil_ls.setup({
+lspconfig("nil_ls", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
+
+vim.lsp.enable('nil_ls')
 
 -- =========================
 -- UFO setup
@@ -244,8 +271,20 @@ require("ufo").setup({
   },
 })
 
-lspconfig.pyright.setup({
+vim.lsp.enable('ufo')
+
+lspconfig("pyright", {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
 })
+
+vim.lsp.enable('pyright')
+
+lspconfig("cmake", {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+})
+
+

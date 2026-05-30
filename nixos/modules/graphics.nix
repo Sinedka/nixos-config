@@ -2,24 +2,23 @@
   config,
   lib,
   pkgs,
+  stable,
   ...
 }:
 {
 
   # Enable OpenGL
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
+    driSupport32Bit = true;
   };
+
+  hardware.graphics.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware.opengl = {
-    enable = true;
-  };
-
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
 
@@ -27,7 +26,7 @@
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
-    powerManagement.enable = false;
+    # powerManagement.enable = false;
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -46,13 +45,19 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
+      offload.enable = true;
       # Make sure to use the correct Bus ID values for your system!
-      intelBusId = "PCI:4:0:0";
-      # nvidiaBusId = "PCI:14:0:0";
+      # intelBusId = "PCI:4:0:0";
+      nvidiaBusId = "PCI:14:0:0";
       amdgpuBusId = "PCI:4:0:0";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    vulkan-loader
+    vulkan-tools
+  ];
 }

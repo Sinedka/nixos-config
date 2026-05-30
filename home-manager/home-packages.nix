@@ -10,6 +10,8 @@
 
   home.packages =
     (with pkgs; [
+      android-studio
+      git-lfs
       unzip
       wl-clipboard
       wget
@@ -19,15 +21,10 @@
       pavucontrol
       hyprpicker
       spotify
-      mpv
-      zoom-us
+      # mpv
       qbittorrent
       cmake
       nerd-fonts.fira-code
-      clang
-      osu-lazer-bin
-      nodejs
-      vscode
       codex
       (pkgs.python3.withPackages (ps: with ps; [
         tkinter
@@ -35,12 +32,11 @@
         scikit-learn
       ]))
       zenity
-      xarchiver
-      gparted
-      quickshell
-      rofi
-      quickgui
       libreoffice
+      gparted
+      ntfs3g
+      prismlauncher
+      jdk21
     ])
     ++ ([
       aniparser

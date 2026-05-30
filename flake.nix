@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -19,7 +19,7 @@
     };
 
     caelestia-cli = {
-      url = "github:caelestia-dots/cli/v1.0.7";
+      url = "github:caelestia-dots/cli/v1.0.5";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.caelestia-shell.follows = "caelestia-shell";
     };

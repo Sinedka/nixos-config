@@ -28,24 +28,13 @@
     ./graphics.nix
     ./thunar.nix
     ./polkit.nix
+    ./happ.nix
   ];
-  boot.kernelModules = [
-    "hid_nintendo"
-    "joydev"
-  ];
-
-  # иногда нужно явно
-  hardware.bluetooth.settings = {
-    General = {
-      Experimental = true;
-    };
-  };
-
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
-  hardware.xone.enable = true;
-  hardware.xpadneo.enable = true;
+
   programs.gpu-screen-recorder.enable = true;
+
   programs.nix-ld = {
     enable = true;
     libraries =
@@ -60,12 +49,12 @@
         cairo
         gtk3
         pango
-        xorg.libX11
-        xorg.libXcomposite
-        xorg.libXdamage
-        xorg.libXext
-        xorg.libXfixes
-        xorg.libXrandr
+        libX11
+        libXcomposite
+        libXdamage
+        libXext
+        libXfixes
+        libXrandr
         mesa
         expat
         libgbm
@@ -80,8 +69,6 @@
       ]);
   };
 
-  programs.steam.enable = true;
-
-  services.flatpak.enable = true;
-
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedUDPPorts = [ 25565 ];
 }

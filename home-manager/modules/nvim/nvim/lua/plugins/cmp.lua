@@ -3,9 +3,16 @@ return {
     "saghen/blink.cmp",
     event = "InsertEnter",
     dependencies = {
+      'saghen/blink.lib',
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
     },
+
+    build = function()
+      -- build the fuzzy matcher, wait up to 60 seconds
+      -- you can use `gb` in `:Lazy` to rebuild the plugin as needed
+      require('blink.cmp').build():wait(60000)
+    end,
 
     config = function()
       local luasnip = require("luasnip")
@@ -27,21 +34,14 @@ return {
             end
           end,
         },
-
-        fuzzy = {
-          prebuilt_binaries = {
-            force_version = "v1.8.0"
-          }
-        },
-
         completion = {
           menu = {
             auto_show = true,
-            border = "rounded",
+            -- border = "rounded",
           },
           documentation = {
             auto_show = true,
-            border = "rounded",
+            -- border = "rounded",
           },
           ghost_text = { enabled = false },
         },

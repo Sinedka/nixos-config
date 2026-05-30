@@ -14,6 +14,10 @@
     nil
     pyright
     vscode-extensions.vadimcn.vscode-lldb
+    cmake-language-server
+    typescript-language-server
+    typescript
+
   ];
 
   home.sessionVariables = {

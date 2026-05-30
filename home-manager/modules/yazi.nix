@@ -31,7 +31,9 @@ in
         dupes
         mount
       ]
-    );
+    )++([
+      pkgs.nushell
+    ]);
     plugins = {
       inherit (pkgs.yaziPlugins) mount ouch sudo;
     };
