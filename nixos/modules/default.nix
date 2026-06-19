@@ -29,6 +29,7 @@
     ./thunar.nix
     ./polkit.nix
     ./happ.nix
+    ./zapret.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;

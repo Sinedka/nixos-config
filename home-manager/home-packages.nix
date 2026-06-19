@@ -37,6 +37,7 @@
       ntfs3g
       prismlauncher
       jdk21
+      jetbrains.idea
     ])
     ++ ([
       aniparser

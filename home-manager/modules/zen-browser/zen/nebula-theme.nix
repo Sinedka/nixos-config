@@ -1,5 +1,4 @@
 {
-  home.file.".config/zen/chrome/".source = ./chrome;
-  home.file.".config/zen/chrome/".recursive = true;
-
+  home.file.".config/zen/sindeka/chrome/".source = ./chrome;
+  home.file.".config/zen/sinedka/chrome/".recursive = true;
 }
