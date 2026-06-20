@@ -1,7 +1,7 @@
 {
   imports = [
     # ./caelestia
-    ./yazi.nix
+    ./yazi
     ./console
     ./git
     ./hyprland

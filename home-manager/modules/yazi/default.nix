@@ -11,6 +11,7 @@ in
 {
   programs.yazi = {
     enable = true;
+    initLua = ./init.lua;
     enableZshIntegration = true;
     flavors = {
       tokyo-night = tokyoNightTheme;
@@ -21,27 +22,47 @@ in
         light = "tokyo-night";
       };
     };
-    extraPackages = (
-      with pkgs.yaziPlugins;
-      [
+    extraPackages =
+      (with pkgs.yaziPlugins; [
         # unar
         ouch
         sudo
         chmod
         dupes
         mount
-      ]
-    )++([
-      pkgs.nushell
-    ]);
+        bookmarks
+      ])
+      ++ ([
+        pkgs.nushell
+      ]);
     plugins = {
-      inherit (pkgs.yaziPlugins) mount ouch sudo;
+      inherit (pkgs.yaziPlugins) mount ouch sudo bookmarks;
     };
     keymap = {
       mgr.prepend_keymap = [
         {
           run = "plugin mount";
           on = [ "M" ];
+        }
+        {
+          on = [
+            "b"
+            "a"
+          ];
+          run = "plugin bookmarks save";
+        }
+        {
+          on = [
+            "b"
+            "d"
+          ];
+          run = "plugin bookmarks delete";
+        }
+        {
+          on = [
+            "'"
+          ];
+          run = "plugin bookmarks jump";
         }
         {
           on = [
