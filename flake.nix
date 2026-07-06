@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.55.4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     aniparser.url = "github:sinedka/aniparser-flake";
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 

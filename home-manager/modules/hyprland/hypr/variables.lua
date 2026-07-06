@@ -41,9 +41,9 @@ return {
     singleWindowGapsOut        = 20,
 
     -- Window styling
-    windowOpacity              = 0.95,
+    windowOpacity              = 1,
     windowRounding             = 15,
-    windowBorderSize           = 1,
+    windowBorderSize           = 3,
     activeWindowBorderColour   = "rgba(" .. scheme.primary .. "e6)",
     inactiveWindowBorderColour = "rgba(" .. scheme.onSurfaceVariant .. "11)",
 
@@ -90,7 +90,7 @@ return {
     kbTodoWs                   = "SUPER + R",
 
     -- Apps
-    kbTerminal                 = "SUPER + T",
+    kbTerminal                 = "SUPER + Return",
     kbBrowser                  = "SUPER + W",
     kbEditor                   = "SUPER + C",
     kbFileExplorer             = "SUPER + E",

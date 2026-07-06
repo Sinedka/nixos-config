@@ -1,6 +1,5 @@
 {
   pkgs,
-  unstable,
   aniparser,
   caelestia-cli,
   ...
@@ -26,7 +25,6 @@
       qbittorrent
       cmake
       nerd-fonts.fira-code
-      codex
       (pkgs.python3.withPackages (ps: with ps; [
         tkinter
         litemapy
