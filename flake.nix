@@ -14,12 +14,12 @@
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell/v1.6.1";
+      url = "github:caelestia-dots/shell/v2.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     caelestia-cli = {
-      url = "github:caelestia-dots/cli/v1.0.5";
+      url = "github:caelestia-dots/cli/v1.1.1";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.caelestia-shell.follows = "caelestia-shell";
     };

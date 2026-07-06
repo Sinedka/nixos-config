@@ -6,7 +6,6 @@
     ./git
     ./hyprland
     ./nvim
-    ./vesktop
     ./bash.nix
     ./cursor.nix
     ./gtk.nix

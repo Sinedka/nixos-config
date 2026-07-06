@@ -10,6 +10,7 @@
 
   home.packages =
     (with pkgs; [
+      vscode
       android-studio
       git-lfs
       unzip
@@ -35,9 +36,9 @@
       libreoffice
       gparted
       ntfs3g
-      prismlauncher
       jdk21
       jetbrains.idea
+      gcc
     ])
     ++ ([
       aniparser

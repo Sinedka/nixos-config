@@ -29,12 +29,18 @@
     ./thunar.nix
     ./polkit.nix
     ./happ.nix
-    ./zapret.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
 
   programs.gpu-screen-recorder.enable = true;
+
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+    usbmon.enable = true;
+    dumpcap.enable = true;
+  };
 
   programs.nix-ld = {
     enable = true;
@@ -66,7 +72,11 @@
         icu
         libgdiplus
         pcre
-
+        libglvnd
+        libGL
+        xorg.libXext
+        xorg.libXdamage
+        xorg.libXfixes
       ]);
   };
 
