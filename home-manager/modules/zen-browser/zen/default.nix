@@ -1,6 +1,6 @@
 {
   imports = [
     ./profile.nix
-    # ./nebula-theme.nix
+    ./nebula-theme.nix
   ];
 }

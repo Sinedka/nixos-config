@@ -1266,7 +1266,4 @@
   // Start the core
   Nebula.init();
 
-
 })();
-
-

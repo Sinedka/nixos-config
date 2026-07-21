@@ -19,7 +19,7 @@
     aniparser.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell/v2.1.0";
+      url = "github:caelestia-dots/shell/v2.2.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

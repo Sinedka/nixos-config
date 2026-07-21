@@ -1,25 +1,21 @@
 { config, pkgs, ... }:
+
 let
   custom-sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "hyprland_kath";
-    #themeConfig = {
-    #  Background = "path/to/background.jpg";
-    #  Font = "M+1 Nerd Font";
-    #};
   };
 in {
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
-    wayland.enable = true;
     enable = true;
-    package = pkgs.kdePackages.sddm; # qt6 sddm version
-    extraPackages = with pkgs; [ custom-sddm-astronaut ];
+    wayland.enable = true;
+
+    package = pkgs.kdePackages.sddm;
+    extraPackages = [ custom-sddm-astronaut ];
 
     theme = "sddm-astronaut-theme";
+
     settings = {
-      Theme = {
-        Current = "sddm-astronaut-theme";
-      };
+      Theme.Current = "sddm-astronaut-theme";
     };
   };
 
@@ -27,4 +23,23 @@ in {
     custom-sddm-astronaut
     kdePackages.qtmultimedia
   ];
+
+  system.activationScripts.sddmWestonConfig.text = ''
+    install -d -m755 /var/lib/sddm/.config
+
+    cat > /var/lib/sddm/.config/weston.ini <<'EOF'
+[core]
+
+[output]
+name=eDP-1
+mode=preferred
+
+[output]
+name=HDMI-A-1
+mode=preferred
+same-as=eDP-1
+EOF
+
+    chown -R sddm:sddm /var/lib/sddm/.config
+  '';
 }

@@ -1,8 +1,3 @@
-
-
-
-
-
 {inputs, pkgs, ...}:
 {
   programs.hyprland = {

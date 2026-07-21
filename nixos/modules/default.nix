@@ -74,9 +74,13 @@
         pcre
         libglvnd
         libGL
-        xorg.libXext
-        xorg.libXdamage
+        xorg.libXext 
+        xorg.libXdamage 
         xorg.libXfixes
+        krb5
+        brotli
+        fontconfig
+        freetype
       ]);
   };
 
