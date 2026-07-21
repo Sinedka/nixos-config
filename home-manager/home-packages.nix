@@ -35,7 +35,7 @@
       gparted
       ntfs3g
       jdk21
-      jetbrains.idea
+      # jetbrains.idea
       gcc
     ])
     ++ ([

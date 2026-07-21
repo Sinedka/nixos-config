@@ -12,5 +12,6 @@
     ./kitty.nix
     ./zen-browser
     ./obsidian.nix
+    ./vesktop
   ];
 }
