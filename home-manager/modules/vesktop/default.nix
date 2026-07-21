@@ -18,8 +18,7 @@
       themeLinks = [];
       eagerPatches = false;
       enabledThemes = [
-#         "test1.css"
-#         "my.css"
+        "system24"
       ];
       enableReactDevtools = true;
       frameless = true;
@@ -602,9 +601,8 @@
       };
     };
 
-#   vencord.themes = {
-#     "test1" = ./themes/test1.css;
-#     "my" = ./themes/my.css;
-#   };
+    vencord.themes = {
+      "system24" = ./themes/system24-tokyo-night.theme.css;
+    };
   };
 }
