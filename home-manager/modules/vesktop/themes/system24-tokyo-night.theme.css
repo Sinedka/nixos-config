@@ -97,7 +97,7 @@ body {
     --bg-1: hsl(230, 22%, 25%); /* dark buttons when clicked */
     --bg-2: hsl(230, 21%, 19%); /* dark buttons */
     --bg-3: #16161d; /* spacing, secondary elements */
-    --bg-4: #1a1b26; /* main background color */
+    --bg-4: #1a1b2600; /* main background color */
     --hover: hsla(225, 22%, 41%, 0.125); /* channels and buttons when hovered */
     --active: hsla(225, 22%, 41%, 0.267); /* channels and buttons when clicked or selected */
     --active-2: hsla(225, 22%, 41%, 0.333); /* extra state for transparent buttons */

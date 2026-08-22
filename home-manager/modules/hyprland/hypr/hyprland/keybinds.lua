@@ -129,7 +129,7 @@ hl.bind(vars.kbSpecialWs, hl.dsp.exec_cmd("caelestia toggle specialws"))
 hl.bind(vars.kbSystemMonitorWs, hl.dsp.exec_cmd("caelestia toggle sysmon"))
 hl.bind(vars.kbMusicWs, hl.dsp.exec_cmd("caelestia toggle music"))
 hl.bind(vars.kbCommunicationWs, hl.dsp.exec_cmd("caelestia toggle communication"))
-hl.bind(vars.kbTodoWs, hl.dsp.exec_cmd("caelestia toggle todo"))
+hl.bind(vars.kbTodoWs, hl.dsp.exec_cmd("caelestia toggle notes"))
 
 -- Apps
 hl.bind(vars.kbTerminal, hl.dsp.exec_cmd(vars.terminal))

@@ -87,7 +87,7 @@ return {
     kbSystemMonitorWs          = "CTRL + SHIFT + Escape",
     kbMusicWs                  = "SUPER + M",
     kbCommunicationWs          = "SUPER + D",
-    kbTodoWs                   = "SUPER + R",
+    kbTodoWs                   = "SUPER + N",
 
     -- Apps
     kbTerminal                 = "SUPER + Return",
@@ -97,7 +97,7 @@ return {
 
     -- Misc
     kbSession                  = "CTRL + ALT + Delete",
-    kbShowSidebar              = "SUPER + N",
+    kbShowSidebar              = "SUPER + J",
     kbClearNotifs              = "CTRL + ALT + C",
     kbShowPanels               = "SUPER + K",
     kbLock                     = "SUPER + L",

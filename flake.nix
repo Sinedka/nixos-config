@@ -36,13 +36,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
       aniparser = inputs.aniparser.packages.${system}.default;
       caelestia-cli = inputs.caelestia-cli.packages.${system}.with-shell;
-      zen-browser = inputs.zen-browser.packages."${system}".twilight;
       user = "sinedka";
       hostname = "nixosuser";
       stateVersion = "26.05";
@@ -50,7 +55,15 @@
     {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { inherit inputs stateVersion hostname user stable; };
+        specialArgs = {
+          inherit
+            inputs
+            stateVersion
+            hostname
+            user
+            stable
+            ;
+        };
 
         modules = [
           ./hosts/${hostname}/configuration.nix
@@ -58,10 +71,22 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${user}.imports = [ ./home-manager/home.nix inputs.zen-browser.homeModules.twilight ];
+            home-manager.users.${user}.imports = [
+              ./home-manager/home.nix
+              inputs.zen-browser.homeModules.twilight
+            ];
 
             # home-manager.users.${user} = ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs stateVersion user stable aniparser caelestia-cli; };
+            home-manager.extraSpecialArgs = {
+              inherit
+                inputs
+                stateVersion
+                user
+                stable
+                aniparser
+                caelestia-cli
+                ;
+            };
           }
         ];
       };

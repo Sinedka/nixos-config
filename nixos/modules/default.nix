@@ -12,7 +12,6 @@
     ./ddcutil.nix
     ./electron.nix
     ./env.nix
-    ./gc.nix
     ./home-manager.nix
     ./hyprland.nix
     ./nekoray.nix
@@ -28,7 +27,8 @@
     ./graphics.nix
     ./thunar.nix
     ./polkit.nix
-    ./happ.nix
+    ./gaming.nix
+    ./swap
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
@@ -87,4 +87,7 @@
   networking.firewall.allowedTCPPorts = [ 25565 ];
   networking.firewall.allowedUDPPorts = [ 25565 ];
   networking.firewall.enable = false;
+
+  services.usbmuxd.enable = true;
+
 }

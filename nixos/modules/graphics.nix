@@ -7,13 +7,10 @@
 }:
 {
 
-  # Enable OpenGL
-  # hardware.opengl = {
-  #   enable = true;
-  #   driSupport32Bit = true;
-  # };
-
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -48,9 +45,10 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
-      offload.enable = true;
-      # Make sure to use the correct Bus ID values for your system!
-      # intelBusId = "PCI:4:0:0";
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       nvidiaBusId = "PCI:14:0:0";
       amdgpuBusId = "PCI:4:0:0";
     };
@@ -59,5 +57,6 @@
   environment.systemPackages = with pkgs; [
     vulkan-loader
     vulkan-tools
+    mesa-demos
   ];
 }

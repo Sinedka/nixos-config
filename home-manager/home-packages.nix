@@ -21,7 +21,7 @@
       pavucontrol
       hyprpicker
       spotify
-      # mpv
+      mpv
       qbittorrent
       cmake
       nerd-fonts.fira-code
@@ -29,14 +29,20 @@
         tkinter
         litemapy
         scikit-learn
+        numpy
+        nbtlib
       ]))
       zenity
       libreoffice
       gparted
       ntfs3g
       jdk21
-      # jetbrains.idea
+      jetbrains.idea
       gcc
+      prismlauncher
+      mpv
+      libimobiledevice
+      ifuse
     ])
     ++ ([
       aniparser

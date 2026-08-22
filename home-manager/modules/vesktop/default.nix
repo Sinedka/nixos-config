@@ -265,7 +265,7 @@
           enabled = false;
         };
         ImageZoom = {
-          enabled = true;
+          enabled = false;
         };
         ImplicitRelationships = {
           enabled = false;
