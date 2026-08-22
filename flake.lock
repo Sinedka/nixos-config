@@ -126,6 +126,27 @@
         "type": "github"
       }
     },
+    "chaotic": {
+      "inputs": {
+        "flake-schemas": "flake-schemas",
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1787382387,
+        "narHash": "sha256-lsil+MYPB1D2Xs/PD/km0ueiZ0allNXMNInRmj1ukiE=",
+        "owner": "chaotic-cx",
+        "repo": "nyx",
+        "rev": "662d62e29832758daa0407b1209cfd321e579f6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chaotic-cx",
+        "ref": "nyxpkgs-unstable",
+        "repo": "nyx",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -140,6 +161,20 @@
         "owner": "NixOS",
         "repo": "flake-compat",
         "type": "github"
+      }
+    },
+    "flake-schemas": {
+      "locked": {
+        "lastModified": 1780327564,
+        "narHash": "sha256-HiRPtA0spK+Dkgbhz/1zW9glXxNVB+L4Rj2VYmdawb8=",
+        "rev": "6cc9bd98891b1fc6bb2b8cb3277df8bc72799ca6",
+        "revCount": 149,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/flake-schemas/0.5.0/019e83cf-9af3-78b1-ac5b-70e68ad1efe1/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%3D0.5.0.tar.gz"
       }
     },
     "flake-utils": {
@@ -183,6 +218,27 @@
       }
     },
     "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "chaotic",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787176219,
+        "narHash": "sha256-djoRr6jBpe35q/0JwAvXpFXg1Ktf+X54NU2RLR7wnHw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "c53d643b3737e2fcd04e6cb3b3580ef50b2087a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -574,6 +630,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1787135253,
+        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -623,9 +695,10 @@
         "aniparser": "aniparser",
         "caelestia-cli": "caelestia-cli",
         "caelestia-shell": "caelestia-shell",
-        "home-manager": "home-manager",
+        "chaotic": "chaotic",
+        "home-manager": "home-manager_2",
         "hyprland": "hyprland",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "zen-browser": "zen-browser"
       }

@@ -28,11 +28,14 @@
     ./thunar.nix
     ./polkit.nix
     ./gaming.nix
-    ./swap
+    ./swap.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
 
+  nixpkgs.config = {
+    allowBroken = true;
+  };
   programs.gpu-screen-recorder.enable = true;
 
   programs.wireshark = {
@@ -74,8 +77,8 @@
         pcre
         libglvnd
         libGL
-        xorg.libXext 
-        xorg.libXdamage 
+        xorg.libXext
+        xorg.libXdamage
         xorg.libXfixes
         krb5
         brotli

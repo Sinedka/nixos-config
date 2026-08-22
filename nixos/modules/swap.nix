@@ -5,5 +5,5 @@
     memoryPercent = 50;
   };
 
-  services.oomd.enable = true;
+  systemd.oomd.enable = true;
 }
