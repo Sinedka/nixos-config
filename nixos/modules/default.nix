@@ -29,6 +29,7 @@
     ./polkit.nix
     ./gaming.nix
     ./swap.nix
+    ./qmk.nix
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
@@ -69,6 +70,9 @@
         expat
         libgbm
         xorg.libxcb
+        xorg.libXrender
+        xorg.libXi
+        xorg.libXtst
         libxkbcommon
         alsa-lib
         stdenv.cc.cc

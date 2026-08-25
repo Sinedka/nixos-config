@@ -25,13 +25,15 @@
       qbittorrent
       cmake
       nerd-fonts.fira-code
-      (pkgs.python3.withPackages (ps: with ps; [
-        tkinter
-        litemapy
-        scikit-learn
-        numpy
-        nbtlib
-      ]))
+      (pkgs.python3.withPackages (
+        ps: with ps; [
+          tkinter
+          litemapy
+          scikit-learn
+          numpy
+          nbtlib
+        ]
+      ))
       zenity
       libreoffice
       gparted
