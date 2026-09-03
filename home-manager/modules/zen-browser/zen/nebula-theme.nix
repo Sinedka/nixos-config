@@ -1,4 +1,5 @@
+{user, ...}:
 {
-  home.file.".config/zen/sinedka/chrome/".source = ./chrome;
-  home.file.".config/zen/sinedka/chrome/".recursive = true;
+  home.file.".config/zen/${user}/chrome/".source = ./chrome;
+  home.file.".config/zen/${user}/chrome/".recursive = true;
 }

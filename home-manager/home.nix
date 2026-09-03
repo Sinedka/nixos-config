@@ -7,7 +7,7 @@
 
   home = {
     username = user;
-    homeDirectory = "/home/sinedka";
+    homeDirectory = "/home/${user}";
     stateVersion = stateVersion;
   };
 

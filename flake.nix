@@ -51,47 +51,53 @@
       aniparser = inputs.aniparser.packages.${system}.default;
       caelestia-cli = inputs.caelestia-cli.packages.${system}.with-shell;
       user = "sinedka";
-      hostname = "nixosuser";
+      hostnames = [
+        "laptop"
+        "desktop"
+      ];
       stateVersion = "26.05";
     in
     {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        system = system;
-        specialArgs = {
-          inherit
-            inputs
-            stateVersion
-            hostname
-            user
-            stable
-            ;
-        };
+      nixosConfigurations = nixpkgs.lib.genAttrs hostnames (
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = {
+            inherit
+              inputs
+              stateVersion
+              hostname
+              user
+              stable
+              ;
+          };
 
-        modules = [
-          ./hosts/${hostname}/configuration.nix
-          inputs.chaotic.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user}.imports = [
-              ./home-manager/home.nix
-              inputs.zen-browser.homeModules.twilight
-            ];
+          modules = [
+            ./hosts/${hostname}/configuration.nix
+            inputs.chaotic.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user}.imports = [
+                ./home-manager/home.nix
+                inputs.zen-browser.homeModules.twilight
+              ];
 
-            # home-manager.users.${user} = ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit
-                inputs
-                stateVersion
-                user
-                stable
-                aniparser
-                caelestia-cli
-                ;
-            };
-          }
-        ];
-      };
+              # home-manager.users.${user} = ./home-manager/home.nix;
+              home-manager.extraSpecialArgs = {
+                inherit
+                  inputs
+                  stateVersion
+                  user
+                  stable
+                  aniparser
+                  caelestia-cli
+                  ;
+              };
+            }
+          ];
+        }
+      );
     };
 }
