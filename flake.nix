@@ -40,7 +40,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # IMPORTANT
   };
 
   outputs =
@@ -79,7 +79,7 @@
 
           modules = [
             ./hosts
-            inputs.chaotic.nixosModules.default
+            # inputs.chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

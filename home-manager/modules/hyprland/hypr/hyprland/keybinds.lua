@@ -1,43 +1,41 @@
 local vars = require("variables")
 local fn   = require("hyprland.functions")
+local mainMod = _G.mainMod or "SUPER"
+local terminal = _G.terminal or "kitty"
 
--- Launcher
-hl.bind("SUPER + SUPER_L", hl.dsp.global("caelestia:launcher"), { release = true })
 
--- Misc
-hl.bind(vars.kbSession, hl.dsp.global("caelestia:session"))
-hl.bind(vars.kbShowSidebar, hl.dsp.global("caelestia:sidebar"))
-hl.bind(vars.kbClearNotifs, hl.dsp.global("caelestia:clearNotifs"), { locked = true })
-hl.bind(vars.kbShowPanels, hl.dsp.global("caelestia:showall"))
-hl.bind(vars.kbLock, hl.dsp.global("caelestia:lock"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("serpantinum brightness lower"), { locked = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("serpantinum brightness raise"), { locked = true })
 
--- Restore lock
-hl.bind(vars.kbRestoreLock, function()
-    hl.dispatch(hl.dsp.exec_cmd("caelestia shell -d"))
-    hl.dispatch(hl.dsp.global("caelestia:lock"))
-end)
+hl.bind("Print", hl.dsp.exec_cmd("serpantinum screenshot"), { locked = true })
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("serpantinum screenshot --edit"), { locked = true })
+hl.bind("SUPER + Print", hl.dsp.exec_cmd("serpantinum screenshot --full"), { locked = true })
+hl.bind("SUPER + SHIFT + Print", hl.dsp.exec_cmd("serpantinum screenshot --full --edit"), { locked = true })
 
--- Brightness
-hl.bind("XF86MonBrightnessUp", hl.dsp.global("caelestia:brightnessUp"), { locked = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.global("caelestia:brightnessDown"), { locked = true })
 
--- Media
-hl.bind("CTRL + SUPER + Space", hl.dsp.global("caelestia:mediaToggle"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.global("caelestia:mediaToggle"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.global("caelestia:mediaToggle"), { locked = true })
-hl.bind("CTRL + SUPER + Equal", hl.dsp.global("caelestia:mediaNext"), { locked = true })
-hl.bind("XF86AudioNext", hl.dsp.global("caelestia:mediaNext"), { locked = true })
-hl.bind("CTRL + SUPER + Minus", hl.dsp.global("caelestia:mediaPrev"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.global("caelestia:mediaPrev"), { locked = true })
-hl.bind("XF86AudioStop", hl.dsp.global("caelestia:mediaStop"), { locked = true })
+hl.bind("XF86PowerOff", hl.dsp.exec_cmd("serpantinum lock"), { locked = true })
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("serpantinum lock"), { repeating = true, locked = true })
 
--- Kill/restart
-hl.bind("CTRL + SUPER + SHIFT + R", hl.dsp.exec_cmd("qs -c caelestia kill"), { release = true })
-hl.bind(
-    "CTRL + SUPER + ALT + R",
-    hl.dsp.exec_cmd("qs -c caelestia kill; sleep .1; caelestia shell -d"),
-    { release = true }
-)
+
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("serpantinum volume mic-toggle"), { locked = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("serpantinum volume mute-toggle"), { locked = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("serpantinum volume lower"), { repeating = true, locked = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("serpantinum volume raise"), { repeating = true, locked = true })
+
+
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("serpantinum reload"))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("serpantinum msg toggle clipboard"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("serpantinum msg toggle launcher"))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("serpantinum msg toggle music"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("serpantinum msg toggle system"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("serpantinum msg toggle wallpaper"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("serpantinum msg toggle calendar"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("serpantinum msg toggle network"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("serpantinum msg toggle volume"))
+hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("serpantinum msg toggle guide"))
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
@@ -50,8 +48,8 @@ end
 -- Go to workspace -1/+1
 hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "-1" }))
 hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(vars.kbPrevWs, hl.dsp.focus({ workspace = "-1" }), { repeating = true })
-hl.bind(vars.kbNextWs, hl.dsp.focus({ workspace = "+1" }), { repeating = true })
+hl.bind("CTRL + SUPER + Left", hl.dsp.focus({ workspace = "-1" }), { repeating = true })
+hl.bind("CTRL + SUPER + Right", hl.dsp.focus({ workspace = "+1" }), { repeating = true })
 hl.bind("SUPER + Page_Up", hl.dsp.focus({ workspace = "-1" }), { repeating = true })
 hl.bind("SUPER + Page_down", hl.dsp.focus({ workspace = "+1" }), { repeating = true })
 
@@ -73,12 +71,12 @@ hl.bind("CTRL + SUPER + SHIFT + down", hl.dsp.window.move({ workspace = "e+0" })
 hl.bind("SUPER + ALT + S", hl.dsp.window.move({ workspace = "special:special" }))
 
 -- Window groups
-hl.bind(vars.kbWindowGroupCycleNext, hl.dsp.window.cycle_next(), { repeating = true })
-hl.bind(vars.kbWindowGroupCyclePrev, hl.dsp.window.cycle_next({ next = false }), { repeating = true })
+hl.bind("ALT + TAB", hl.dsp.window.cycle_next(), { repeating = true })
+hl.bind("SHIFT + ALT + TAB", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 hl.bind("CTRL + ALT + Tab", hl.dsp.group.next(), { repeating = true })
 hl.bind("CTRL + SHIFT + ALT + Tab", hl.dsp.group.prev(), { repeating = true })
-hl.bind(vars.kbToggleGroup, hl.dsp.group.toggle())
-hl.bind(vars.kbUngroup, hl.dsp.window.move({ out_of_group = true }))
+hl.bind("SUPER + Comma", hl.dsp.group.toggle())
+hl.bind("SUPER + U", hl.dsp.window.move({ out_of_group = true }))
 hl.bind("SUPER + SHIFT + Comma", hl.dsp.group.lock_active())
 
 -- Window actions

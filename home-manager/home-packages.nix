@@ -43,8 +43,7 @@
       gcc
       prismlauncher
       mpv
-      libimobiledevice
-      ifuse
+      playerctl
     ])
     ++ ([
       aniparser
