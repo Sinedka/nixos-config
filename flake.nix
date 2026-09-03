@@ -73,8 +73,7 @@
           };
 
           modules = [
-            ./hosts/${hostname}/configuration.nix
-            inputs.chaotic.nixosModules.default
+            ./hosts           inputs.chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
