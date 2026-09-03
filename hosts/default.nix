@@ -10,7 +10,7 @@ in
 {
   imports = [
     ./${hostname}/hardware-configuration.nix
-    nixos/modules
+    ../nixos/modules
   ]
   ++ (if builtins.pathExists path then [ path ] else [ ]);
 

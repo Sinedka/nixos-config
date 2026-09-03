@@ -13,5 +13,6 @@
     ./zen-browser
     ./obsidian.nix
     ./vesktop
+    ./serpantium.nix
   ];
 }

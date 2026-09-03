@@ -48,7 +48,7 @@
     ])
     ++ ([
       aniparser
-      caelestia-cli
+      # caelestia-cli
     ]);
 
 }

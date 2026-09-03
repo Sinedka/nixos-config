@@ -700,7 +700,45 @@
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
+        "serpantinum": "serpantinum",
         "zen-browser": "zen-browser"
+      }
+    },
+    "serpantinum": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "serpantinum-wallpapers": "serpantinum-wallpapers"
+      },
+      "locked": {
+        "lastModified": 1788434505,
+        "narHash": "sha256-/DqWspmWptcge+OysN8gFOAXEU4sWYpcc5PC7nAw4GY=",
+        "owner": "ilyamiro",
+        "repo": "serpantinum",
+        "rev": "26e40a34451939f6ea553454fd3f55b36b3d4ac7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ilyamiro",
+        "repo": "serpantinum",
+        "type": "github"
+      }
+    },
+    "serpantinum-wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787675697,
+        "narHash": "sha256-ADvKHmQDsX50opqeiyEAB3uxUTjuCyDym0pGQCy7Sws=",
+        "owner": "ilyamiro",
+        "repo": "shell-wallpapers",
+        "rev": "1cb526443872fbf283a3f8305c3aa647545c02e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ilyamiro",
+        "repo": "shell-wallpapers",
+        "type": "github"
       }
     },
     "systems": {
