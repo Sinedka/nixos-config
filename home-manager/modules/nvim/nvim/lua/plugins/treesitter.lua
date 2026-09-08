@@ -7,7 +7,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = "BufReadPre",
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter'.setup {
         parser_install_dir = parser_install_dir,
         ensure_installed = {
           "tsx",
@@ -108,7 +108,7 @@ return {
       "hiphish/rainbow-delimiters.nvim",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "RRethy/nvim-treesitter-textsubjects",
+      -- "RRethy/nvim-treesitter-textsubjects",
     },
   },
 

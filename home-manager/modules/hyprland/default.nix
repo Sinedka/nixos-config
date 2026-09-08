@@ -5,6 +5,7 @@
   
   # deps
   home.packages = (with pkgs; [
+    pulseaudio
     hyprpicker
     hypridle
     wl-clipboard

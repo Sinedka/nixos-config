@@ -24,12 +24,12 @@ hl.config({
   },
 
   input = {
-    kb_layout = "us",
-    kb_options = "grp:alt_shift_toggle",
+    kb_layout = "us, ru",
+    kb_options = "grp:caps_toggle",
     accel_profile = "flat",
     touchpad = {
       natural_scroll = true,
-      disable_while_typing = false,
+      disable_while_typing = true,
     },
   },
 
