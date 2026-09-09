@@ -44,6 +44,7 @@
       prismlauncher
       mpv
       playerctl
+      gnumake
     ])
     ++ ([
       aniparser
