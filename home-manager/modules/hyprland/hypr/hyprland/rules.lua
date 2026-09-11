@@ -4,8 +4,6 @@ local vars = require("variables")
 ---- Window rules ----
 ----------------------
 
-hl.window_rule({ match = { fullscreen = false }, opacity = vars.windowOpacity .. " override" })
-
 hl.window_rule({ match = { float = true, xwayland = false }, center = true }) -- Center all floating windows (not xwayland cause popups)
 
 -- Floating Applications
@@ -24,8 +22,6 @@ hl.window_rule({
     tag   = "+float",
 })
 hl.window_rule({ match = { class = "steam", title = "Friends List" }, tag = "+float" })
-hl.window_rule({ match = { class = "com-atlauncher-App", title = "ATLauncher Console" }, tag = "+float" })
-hl.window_rule({ match = { class = "PandoraLauncher", title = "Minecraft Game Output" }, tag = "+float" })
 
 hl.window_rule({ match = { tag = "float" }, float = true })
 
@@ -72,9 +68,6 @@ hl.window_rule({
     idle_inhibit = "always",
 })
 
--- Steam
-hl.window_rule({ match = { class = "steam" }, rounding = 10 })
-
 -- Picture in picture (resize and move done via script)
 hl.window_rule({
     match             = { title = "Picture(-| )in(-| )[Pp]icture" },
@@ -106,7 +99,7 @@ hl.window_rule({
 })
 
 -- Special workspaces
-hl.window_rule({ match = { class = "btop" }, workspace = "special:sysmon" })
+-- hl.window_rule({ match = { class = "btop" }, workspace = "special:sysmon" })
 hl.window_rule({
     match     = {
         class = "feishin|Spotify|Supersonic|Cider|com.github.th_ch.youtube_music|Plexamp|com-maxrave-simpmusic-MainKt",
@@ -114,8 +107,8 @@ hl.window_rule({
     workspace = "special:music",
 })
 hl.window_rule({ match = { initial_title = "Spotify( %(?Free%)?)?" }, workspace = "special:music" }) -- Spotify wayland, it has no class for some reason
-hl.window_rule({ match = { class = "discord|equibop|vesktop|whatsapp" }, workspace = "special:communication" })
-hl.window_rule({ match = { class = "Todoist" }, workspace = "special:todo" })
+hl.window_rule({ match = { class = "discord|vesktop" }, workspace = "special:discord" })
+hl.window_rule({ match = { class = "telegram" }, workspace = "special:telegram" })
 
 -------------------------
 ---- Workspace rules ----

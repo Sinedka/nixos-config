@@ -19,6 +19,7 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("playerctl play-pause"), { locked
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("serpantinum volume mic-toggle"), { locked = true })
+hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("serpantinum volume mic-toggle"), { locked = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("serpantinum volume mute-toggle"), { locked = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("serpantinum volume lower"), { repeating = true, locked = true })
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("serpantinum volume raise"), { repeating = true, locked = true })
@@ -40,8 +41,6 @@ for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind("SUPER + " .. key, fn.wsaction("focus", "", i))
     hl.bind("SUPER + ALT + " .. " + " .. key, fn.wsaction("move", "", i))
-    hl.bind("CTRL + SUPER + ALT + " .. " + " .. key, fn.wsaction("focus", "group", i))
-    -- hl.bind(vars.kbMoveWinToWsGroup .. " + " .. key, fn.wsaction("move", "group", i))
 end
 
 -- Go to workspace -1/+1
@@ -120,11 +119,10 @@ hl.bind("CTRL + SUPER + ALT + Backslash", hl.dsp.window.center())
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
 -- Special workspace toggles
--- hl.bind(vars.kbSpecialWs, hl.dsp.exec_cmd("caelestia toggle specialws"))
--- hl.bind(vars.kbSystemMonitorWs, hl.dsp.exec_cmd("caelestia toggle sysmon"))
--- hl.bind(vars.kbMusicWs, hl.dsp.exec_cmd("caelestia toggle music"))
--- hl.bind(vars.kbCommunicationWs, hl.dsp.exec_cmd("caelestia toggle communication"))
--- hl.bind(vars.kbTodoWs, hl.dsp.exec_cmd("caelestia toggle notes"))
+-- hl.bind("SUPER + S", hl.dsp.hl.dsp.workspace.toggle_special("special"))
+-- hl.bind("SUPER + D", hl.dsp.hl.dsp.workspace.toggle_special("discord"))
+-- hl.bind("SUPER + T", hl.dsp.hl.dsp.workspace.toggle_special("telegram"))
+-- hl.bind("SUPER + M", hl.dsp.hl.dsp.workspace.toggle_special("music"))
 
 -- Apps
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
@@ -134,25 +132,21 @@ hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
 -- hl.bind("CTRL + ALT + V", hl.dsp.exec_cmd(vars.audioSettings))
 
 -- Volume
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
-hl.bind("SUPER + ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
-hl.bind(
-    "XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd(
-        "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l " ..
-        (100 / 100) .. " @DEFAULT_AUDIO_SINK@ " .. 10 .. "%+"
-    ),
-    { locked = true, repeating = true }
-)
-hl.bind(
-    "XF86AudioLowerVolume",
-    hl.dsp.exec_cmd(
-        "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ " .. 10 .. "%-"
-    ),
-    { locked = true, repeating = true }
-)
+-- hl.bind(
+--     "XF86AudioRaiseVolume",
+--     hl.dsp.exec_cmd(
+--         "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l " ..
+--         (100 / 100) .. " @DEFAULT_AUDIO_SINK@ " .. 10 .. "%+"
+--     ),
+--     { locked = true, repeating = true }
+-- )
+-- hl.bind(
+--     "XF86AudioLowerVolume",
+--     hl.dsp.exec_cmd(
+--         "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ " .. 10 .. "%-"
+--     ),
+--     { locked = true, repeating = true }
+-- )
 
 -- -- Clipboard and emoji picker
 -- hl.bind("SUPER + V", hl.dsp.exec_cmd("pkill fuzzel || caelestia clipboard"))
