@@ -106,9 +106,10 @@ hl.window_rule({
     },
     workspace = "special:music",
 })
-hl.window_rule({ match = { initial_title = "Spotify( %(?Free%)?)?" }, workspace = "special:music" }) -- Spotify wayland, it has no class for some reason
+hl.window_rule({ match = { class = "spotify" }, workspace = "special:music" }) -- Spotify wayland, it has no class for some reason
 hl.window_rule({ match = { class = "discord|vesktop" }, workspace = "special:discord" })
-hl.window_rule({ match = { class = "telegram" }, workspace = "special:telegram" })
+hl.window_rule({ match = { class = "org.prismlauncher.PrismLauncher" }, workspace = "special:minecraft" })
+hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "special:telegram" })
 
 -------------------------
 ---- Workspace rules ----
@@ -128,5 +129,6 @@ hl.layer_rule({ match = { namespace = "wayfreeze" }, animation = "fade" })      
 hl.layer_rule({ match = { namespace = "launcher" }, animation = "popin 80%", blur = true }) -- Fuzzel
 
 -- Shell
-hl.layer_rule({ match = { namespace = "caelestia-(border-exclusion|area-picker)" }, no_anim = true })
+hl.layer_rule({ match = { namespace = "quickshell" }, no_anim = true })
+hl.layer_rule({ match = { namespace = "^(qs.*)" }, no_anim = true })
 hl.layer_rule({ match = { namespace = "caelestia-(drawers|background)" }, animation = "fade" })

@@ -46,8 +46,8 @@
       ls = "eza --icons";
       tree = "eza --tree --icons";
       cat = "bat";
-      grep = "rg";
-      find = "fd";
+      # grep = "rg";
+      # find = "fd";
       c = "clear";
 
 

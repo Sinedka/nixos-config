@@ -1,6 +1,15 @@
 local fn   = require("hyprland.functions")
 local mainMod = "SUPER"
 
+local function toggle_monitor()
+    hl.dispatch(hl.dsp.dpms({ action = "toggle" }))
+end
+
+hl.bind("SUPER + F10", function()
+    hl.timer(function()
+        toggle_monitor()
+    end, { timeout = 500, type = "oneshot" })
+end)
 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("serpantinum brightness lower"), { locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("serpantinum brightness raise"), { locked = true })
@@ -15,7 +24,9 @@ hl.bind("XF86PowerOff", hl.dsp.exec_cmd("serpantinum lock"), { locked = true })
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("serpantinum lock"), { repeating = true, locked = true })
 
 
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind(mainMod .. " + ALT + equal", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind(mainMod .. " + ALT + minus", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("serpantinum volume mic-toggle"), { locked = true })
@@ -28,11 +39,11 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("serpantinum volume raise"), { r
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("serpantinum reload"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("serpantinum msg toggle clipboard"))
 hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("serpantinum msg toggle launcher"), { release = true })
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("serpantinum msg toggle launcher"))
+-- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("serpantinum msg toggle launcher"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("serpantinum msg toggle music"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("serpantinum msg toggle system"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("serpantinum msg toggle wallpaper"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("serpantinum msg toggle calendar"))
+-- hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("serpantinum msg toggle calendar"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("serpantinum msg toggle network"))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("serpantinum msg toggle volume"))
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("serpantinum msg toggle guide"))
@@ -113,22 +124,23 @@ hl.bind("CTRL + SUPER + ALT + Backslash", hl.dsp.window.center())
 --     end
 -- end)
 -- hl.bind(vars.kbPinWindow, hl.dsp.window.pin())
--- hl.bind(vars.kbWindowFullscreen, hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 -- hl.bind(vars.kbWindowBorderedFullscreen, hl.dsp.window.fullscreen({ mode = "maximized" }))
--- hl.bind(vars.kbToggleWindowFloating, hl.dsp.window.float())
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.float())
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
 -- Special workspace toggles
--- hl.bind("SUPER + S", hl.dsp.hl.dsp.workspace.toggle_special("special"))
--- hl.bind("SUPER + D", hl.dsp.hl.dsp.workspace.toggle_special("discord"))
--- hl.bind("SUPER + T", hl.dsp.hl.dsp.workspace.toggle_special("telegram"))
--- hl.bind("SUPER + M", hl.dsp.hl.dsp.workspace.toggle_special("music"))
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"))
+hl.bind("SUPER + D", hl.dsp.workspace.toggle_special("discord"))
+hl.bind("SUPER + T", hl.dsp.workspace.toggle_special("telegram"))
+hl.bind("SUPER + M", hl.dsp.workspace.toggle_special("music"))
+hl.bind("SUPER + U", hl.dsp.workspace.toggle_special("minecraft"))
 
 -- Apps
 hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
--- hl.bind(vars.kbBrowser, hl.dsp.exec_cmd(vars.browser))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("zen-twilight"))
 -- hl.bind(vars.kbEditor, hl.dsp.exec_cmd(vars.editor))
--- hl.bind(vars.kbFileExplorer, hl.dsp.exec_cmd(vars.fileExplorer))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty zsh -c yazi"))
 -- hl.bind("CTRL + ALT + V", hl.dsp.exec_cmd(vars.audioSettings))
 
 -- Volume

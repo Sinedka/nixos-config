@@ -10,6 +10,7 @@
         "input"
         "networkmanager"
         "kvm"
+        "tty"
       ];
     };
   };

@@ -45,6 +45,13 @@
       mpv
       playerctl
       gnumake
+      cemu
+      # clang
+      ffmpeg
+      opencode
+      pince
+      kbd
+      amnezia-vpn
     ])
     ++ ([
       aniparser

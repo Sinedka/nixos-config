@@ -69,10 +69,10 @@
         mesa
         expat
         libgbm
-        xorg.libxcb
-        xorg.libXrender
-        xorg.libXi
-        xorg.libXtst
+        libxcb
+        libXrender
+        libXi
+        libXtst
         libxkbcommon
         alsa-lib
         stdenv.cc.cc
@@ -81,9 +81,9 @@
         pcre
         libglvnd
         libGL
-        xorg.libXext
-        xorg.libXdamage
-        xorg.libXfixes
+        libXext
+        libXdamage
+        libXfixes
         krb5
         brotli
         fontconfig
