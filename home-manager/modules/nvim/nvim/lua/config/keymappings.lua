@@ -15,6 +15,7 @@ keymap("n", "<esc>", ":noh<CR><CR>", silent)
 -- Buffers
 keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", silent)
 keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", silent)
+-- TODO: add delete buffer
 keymap("n", "<leader>x", ":lua Snacks.bufdelete()<CR>", silent)
 
 -- Don't yank on delete char

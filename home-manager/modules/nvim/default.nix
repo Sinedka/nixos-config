@@ -45,6 +45,7 @@
       nodejs_24
       gcc
       pnpm
+      tree-sitter
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -67,6 +68,6 @@
   #   "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  home.file.".config/nvim".source = ./nvim;
+  home.file.".config/nvim".source = ./mvim;
   home.file.".config/nvim".recursive = true;
 }

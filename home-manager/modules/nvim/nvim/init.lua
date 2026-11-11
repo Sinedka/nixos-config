@@ -9,6 +9,7 @@ require('config.autocmds')
 
 require('internal.cursorword')
 
+vim.lsp.inlay_hint.enable(false)
 
 vim.lsp.enable('tailwindcss')
 vim.lsp.enable('cssls')
