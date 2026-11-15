@@ -91,8 +91,8 @@
       ]);
   };
 
-  networking.firewall.allowedTCPPorts = [ 25565 ];
-  networking.firewall.allowedUDPPorts = [ 25565 ];
+  networking.firewall.allowedTCPPorts = [ 25565 27014 27015 27016 27017 27018 27019 27020 ];
+  networking.firewall.allowedUDPPorts = [ 25565 27014 27015 27016 27017 27018 27019 27020 ];
   networking.firewall.enable = false;
 
   services.usbmuxd.enable = true;

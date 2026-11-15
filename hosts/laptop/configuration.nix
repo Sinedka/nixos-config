@@ -1,6 +1,7 @@
 { user, ... }:
 {
   security.polkit.enable = true;
+  programs.coolercontrol.enable=true;
 
   environment.etc."polkit-1/rules.d/99-gsr.rules".text = ''
     polkit.addRule(function(action, subject) {
