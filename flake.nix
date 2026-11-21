@@ -59,6 +59,7 @@
       hostnames = [
         "laptop"
         "desktop"
+	"laptop-old"
       ];
       stateVersion = "26.05";
     in

@@ -78,7 +78,7 @@
         stdenv.cc.cc
         icu
         libgdiplus
-        pcre
+        # pcre
         libglvnd
         libGL
         libXext

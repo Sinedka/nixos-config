@@ -1,4 +1,4 @@
-local scheme = require("scheme.current")
+-- local scheme = require("scheme.current")
 local vars   = require("variables")
 
 hl.config({
@@ -19,13 +19,13 @@ hl.config({
             indicator_height          = 0,
             gaps_in                   = 3,
             gaps_out                  = 3,
-            text_color                = "rgb(" .. scheme.onPrimary .. ")",
-            col                       = {
-                active          = "rgba(" .. scheme.primary .. "d4)",
-                inactive        = "rgba(" .. scheme.outline .. "d4)",
-                locked_active   = "rgba(" .. scheme.primary .. "d4)",
-                locked_inactive = "rgba(" .. scheme.secondary .. "d4)",
-            },
+            -- text_color                = "rgb(" .. scheme.onPrimary .. ")",
+            -- col                       = {
+            --     active          = "rgba(" .. scheme.primary .. "d4)",
+            --     inactive        = "rgba(" .. scheme.outline .. "d4)",
+            --     locked_active   = "rgba(" .. scheme.primary .. "d4)",
+            --     locked_inactive = "rgba(" .. scheme.secondary .. "d4)",
+            -- },
         },
     },
 })

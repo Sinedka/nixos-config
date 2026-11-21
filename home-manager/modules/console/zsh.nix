@@ -152,7 +152,7 @@
       "--inline-info"
       "--preview 'bat --color=always --style=header,grid --line-range :300 {}'"
     ];
-    historyWidgetOptions = [
+    historyWidget.options = [
       "--sort"
       "--exact"
     ];

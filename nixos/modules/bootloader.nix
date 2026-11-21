@@ -10,7 +10,7 @@
       "rd.systemd.show_status=auto"
       "preempt=full"
     ];
-    initrd.systemd.enable = true;
+    # initrd.systemd.enable = true;
     loader = {
       grub = {
         enable = true;
