@@ -628,6 +628,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "serpantinum": "serpantinum",
+        "vpnctl": "vpnctl",
         "zen-browser": "zen-browser"
       }
     },
@@ -712,6 +713,29 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "vpnctl": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795281529,
+        "narHash": "sha256-0to4UnWG/g+gfPSB5bpg3lSk23J+2KQXDGGmBm35bHI=",
+        "owner": "sinedka",
+        "repo": "tunctl",
+        "rev": "49de2300bacd1913d62a67d7585722e25f1fd25f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sinedka",
+        "repo": "tunctl",
         "type": "github"
       }
     },

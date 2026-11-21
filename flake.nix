@@ -34,6 +34,12 @@
       inputs.caelestia-shell.follows = "caelestia-shell";
     };
 
+    vpnctl = {
+      url = "github:sinedka/tunctl";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,12 +87,14 @@
           modules = [
             ./hosts
             # inputs.chaotic.nixosModules.default
+            inputs.vpnctl.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${user}.imports = [
                 ./home-manager/home.nix
+                inputs.vpnctl.homeManagerModules.default
                 inputs.zen-browser.homeModules.twilight
                 inputs.serpantinum.homeManagerModules.default
               ];

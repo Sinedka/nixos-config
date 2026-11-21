@@ -1,5 +1,14 @@
 { user, ... }:
 {
+  services.vpnctl = {
+    enable = true;
+    operators = [ user ];
+    policyUser = user;
+    routing.killSwitch = false;
+  };
+
+  home-manager.users.${user}.programs.vpnctl.enable = true;
+
   security.polkit.enable = true;
   programs.coolercontrol.enable=true;
 
