@@ -5,6 +5,7 @@
     operators = [ user ];
     policyUser = user;
     routing.killSwitch = false;
+    dns.enable = true;
   };
 
   home-manager.users.${user}.programs.vpnctl.enable = true;
