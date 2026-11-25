@@ -2,7 +2,7 @@
   imports = [
     # ./caelestia
     ./vpn.nix
-    . yazi
+    ./yazi
     ./console
     ./git
     ./hyprland

@@ -52,6 +52,7 @@
       pince
       kbd
       amnezia-vpn
+      codex
     ])
     ++ ([
       aniparser

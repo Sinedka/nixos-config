@@ -726,11 +726,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795294233,
-        "narHash": "sha256-lPJTp9kcSjdwvy4ZPpwCIAPYdXmA82kUdUsyctepxBM=",
+        "lastModified": 1795349919,
+        "narHash": "sha256-DLPRDaBFw77qAtp6tFl2NM5wTQQlrZCKwgtEhL4j8rI=",
         "owner": "sinedka",
         "repo": "tunctl",
-        "rev": "ffe1e5abe19c94c78c03d849c11845cd7593cbdc",
+        "rev": "79c54a11ba8fe4a647f94176e9168a2933cfcf9c",
         "type": "github"
       },
       "original": {
